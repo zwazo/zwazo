@@ -1,0 +1,7 @@
+DirectoryIndex index.php index.html index.htm
+
+Options -MultiViews +FollowSymlinks
+RewriteEngine On
+RewriteBase /zwazo
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
