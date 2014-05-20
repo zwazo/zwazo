@@ -34,21 +34,22 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 // ------------------
 
 // mca route / default route
-$app->get('/{module}/{controller}/{action}', function($module, $controller, $action) use ($app) {
+$app->get('/{controller}/{action}', function($controller, $action) use ($app) {
+	$controller = str_replace('/', '', $controller);
+	$action     = str_replace('/', '', $action);
+
 	$content = <<<EOB
-module: {$module}
 controller: {$controller}
 action: {$action}
 EOB;
+
 
 	return $app['twig']->render('skin.twig', array(
         'content' => $content,
     ));
 })
-->assert('module', '[a-zA-Z0-9]+/*')
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
-->value('module', null)
 ->value('controller', null)
 ->value('action', null)
 ;

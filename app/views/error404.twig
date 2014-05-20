@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Error Page</title>
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles.css" media="screen" />
+	<style type="text/css" media="screen">
+	
+	#error-min {
+		width:250px;
+		margin:10% auto; padding:15px 20px;
+		background-color:#334;
+		border:1px solid #557;
+	}
+	#error-min span.errnum {
+		display:block; text-align:center;
+		font-family: 'Cocogoose' , 'Arial Black';
+		font-size: 60px;
+	}
+	#error-min span.errmsg {
+		display:block; text-align:center;
+		font-size:16px; font-weight:bold;
+	}
+	
+	</style>
+</head>
+<body>
+
+<div id="error-min">
+<span class="errnum">{{ code }}</span>
+<span class="errmsg">{{ ('HttpError' ~ code)|trans }}</span><br/>
+
+La page n'existe plus ou n'a jamais existé.
+<br/>&nbsp;<br/>
+Il s'agit peut être d'une faute de frappe, merci de vérifier à nouveau l'adresse web saisie.
+<br/>&nbsp;<br/>
+Dans le cas contraire, vous pouvez reprendre votre navigation depuis l'une des pages ci dessous:
+<ul>
+	<li><a class="home" href="{{ url('url_base') }}">Accueil</a>
+	<!-- <li><a class="contact" href="#">Contact</a> -->
+</ul>
+</div>
+
+</body>
+</html>
