@@ -4,7 +4,7 @@ define('ROOT_WEB', __DIR__);
 @include_once __DIR__ .'/../app/bootstrap.php';
 
 if (!defined('ROOT_APP') OR !isset($app)) {
-	// header('HTTP/1.0 500 Internal Server Error');
+	header('HTTP/1.0 500 Internal Server Error');
 	echo <<<EOB
 <!DOCTYPE HTML>
 <html>
@@ -26,9 +26,9 @@ if (!defined('ROOT_APP') OR !isset($app)) {
 <div id="msg">
 <h2>Internal Server Error</h2>
 <p>
-Obviously something went<br/> terribly wrong.
+Visiblement quelque chose s'est vraiment mal passé.
 </p><p>
-Our apologies for the inconvenience, we'll fix this as soon as possible.
+Toutes nos excuses pour la gène occasionée, nous corrigerons ça dans les plus brefs délais
 </p>
 </div>
 
