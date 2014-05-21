@@ -37,12 +37,23 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app->get('/{controller}/{action}', function($controller, $action) use ($app) {
 	$controller = str_replace('/', '', $controller);
 	$action     = str_replace('/', '', $action);
+	if (empty($controller)) { $controller = 'home'; }
+	if (empty($action)) { $action = 'index'; }
 
-	$content = <<<EOB
-controller: {$controller}
-action: {$action}
-EOB;
+	if (file_exists( ROOT_APP.'/controllers/'.ucfirst($controller).'Controller.php' )) {
+		include_once ROOT_APP.'/controllers/'.ucfirst($controller).'Controller.php';
+		if (class_exists('Zwazo\Ctrl\Home')) {
+			$ctrl = new Zwazo\Ctrl\Home($app);
+		}
+	}
 
+	if (isset($ctrl) && method_exists($ctrl,"{$action}Action")) {
+		$content = call_user_func_array (array($ctrl,"{$action}Action"),array(
+			
+		));
+	} else {
+		$app->abort(404, 'Page Not Found');
+	}
 
 	return $app['twig']->render('skin.twig', array(
         'content' => $content,
