@@ -1,0 +1,18 @@
+@font-face {
+	font-family: 'Bedas';
+	src: url(../font/BEBAS___.TTF);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Gobold';
+	src: url(../font/Gobold_Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Satellite';
+	src: url(../font/Satellite.otf);
+	font-weight: normal;
+	font-style: normal;
+}
