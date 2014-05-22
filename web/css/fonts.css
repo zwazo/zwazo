@@ -1,3 +1,5 @@
+@import url(../font/Lato/Lato-Black.css);
+
 @font-face {
 	font-family: 'Bedas';
 	src: url(../font/BEBAS___.TTF);
@@ -5,14 +7,20 @@
 	font-style: normal;
 }
 @font-face {
-	font-family: 'Gobold';
-	src: url(../font/Gobold_Regular.ttf);
+	font-family: 'Satellite';
+	src: url(../font/Satellite.otf);
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
-	font-family: 'Satellite';
-	src: url(../font/Satellite.otf);
+	font-family: 'Overpass';
+	src: url(../font/Overpass_Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'OverpassBold';
+	src: url(../font/Overpass_Bold.ttf);
 	font-weight: normal;
 	font-style: normal;
 }

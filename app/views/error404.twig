@@ -14,11 +14,11 @@
 	}
 	#error-min span.errnum {
 		display:block; text-align:center;
-		font-family: 'Bedas' , 'Arial Black';
+		font-family: LatoBlack, 'Bedas' , 'Arial Black';
 		font-size: 60px; margin-bottom:10px;
 	}
 	#error-min span.errmsg {
-		font-family: 'Bedas', 'Arial Black';
+		font-family: LatoBlack, 'Bedas', 'Arial Black';
 		display:block; text-align:center;
 		font-size:16px; font-weight:bold;
 	}
@@ -30,12 +30,13 @@
 <div id="error-min">
 <span class="errnum">{{ code }}</span>
 <span class="errmsg">{{ ('HttpError' ~ code)|trans }}</span><br/>
-
+<p style="font-align:justify;">
 La page n'existe plus ou n'a jamais existé.
 <br/>&nbsp;<br/>
 Il s'agit peut être d'une faute de frappe, merci de vérifier à nouveau l'adresse web saisie.
 <br/>&nbsp;<br/>
-Dans le cas contraire, vous pouvez reprendre votre navigation depuis l'une des pages ci dessous:
+Dans le cas contraire, vous pouvez reprendre votre navigation depuis l'une des pages ci-dessous:
+</p>&nbsp;
 <ul>
 	<li><a class="home" href="{{ url('url_base') }}">Accueil</a>
 	<!-- <li><a class="contact" href="#">Contact</a> -->

@@ -11,7 +11,8 @@ a ,a:link ,a:visited {
 span.erobase {
 	font-family: Satellite; 
 	font-weight:bold;
-	font-size:1.4em;
+	font-size:1.2em;
+	line-height:35px;
 }
 
 /* ---------------------
@@ -20,7 +21,7 @@ span.erobase {
 html, body {
 	background-color:#30303F;
 	color: #f0f0f0;
-	font-family: Arial, Helvetica;
+	font-family: Helvetica, Arial;
 	font-size:12px;
 }
 
@@ -44,7 +45,7 @@ header nav ul.big {
 
 header nav ul.big li {
 	float:left; cursor: pointer;
-    font-family: Bedas; font-size:2em;
+    font-family: LatoBlack; font-size:2em;
     line-height: 50px;
     padding: 0 20px;
 	font-weight:bold;
