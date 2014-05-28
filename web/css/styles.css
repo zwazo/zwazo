@@ -37,6 +37,7 @@ header {
 header nav {
     margin: 0 auto;
     width: 960px;
+	text-align:center;
 }
 
 header nav ul.big {
@@ -47,6 +48,6 @@ header nav ul.big li {
 	float:left; cursor: pointer;
     font-family: LatoBlack; font-size:2em;
     line-height: 50px;
-    padding: 0 20px;
+    padding: 0 40px;
 	font-weight:bold;
 }

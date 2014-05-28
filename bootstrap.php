@@ -1,18 +1,19 @@
 <?php
 
-define('ROOT_APP', __DIR__ );
-define('ROOT_VENDOR', __DIR__.'/../vendor');
+define('ROOT_DIR', __DIR__ );
+define('ROOT_VENDOR', __DIR__.'/vendor');
 
 require_once ROOT_VENDOR.'/autoload.php';
 
 $app = new Silex\Application();
+//$app['debug'] = true;
 
 // ------------------
 // Services
 // ------------------
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => ROOT_APP.'/views',
+    'twig.path' => ROOT_DIR.'/app/views',
 ));
 
 // translation service
@@ -23,7 +24,7 @@ use Symfony\Component\Translation\Loader\YamlFileLoader;
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
-    $translator->addResource('yaml', ROOT_APP.'/locales/en.yml', 'en');
+    $translator->addResource('yaml', ROOT_DIR.'/app/locales/en.yml', 'en');
     // $translator->addResource('yaml', ROOT_APP.'/locales/fr.yml', 'fr');
 
     return $translator;
@@ -39,25 +40,25 @@ $app->get('/{controller}/{action}', function($controller, $action) use ($app) {
 	$action     = str_replace('/', '', $action);
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
+	$content = '...';
 
-	if (file_exists( ROOT_APP.'/controllers/'.ucfirst($controller).'Controller.php' )) {
-		include_once ROOT_APP.'/controllers/'.ucfirst($controller).'Controller.php';
-		if (class_exists('Zwazo\Ctrl\Home')) {
-			$ctrl = new Zwazo\Ctrl\Home($app);
+	// ...
+
+	
+	try {
+		if (class_exists('App\Controller\Home',true)) {
+			echo 'yes';
+		} else {
+			echo 'no';
 		}
-	}
-
-	if (isset($ctrl) && method_exists($ctrl,"{$action}Action")) {
-		$content = call_user_func_array (array($ctrl,"{$action}Action"),array(
-			
-		));
-	} else {
-		$app->abort(404, 'Page Not Found');
+//		$ctrl = new App\Controller\Foo();
+	} catch (Exception $e) {
+		echo 'derp';
 	}
 
 	return $app['twig']->render('skin.twig', array(
         'content' => $content,
-    ));
+	));
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
@@ -78,7 +79,7 @@ $app->get('/', function() use ($app) { /* ... */ })->bind('url_base');
 // ------------------
 use Symfony\Component\HttpFoundation\Response;
 $app->error(function (\Exception $e, $code) use ($app) {
-	
+	echo $e->getMessage();
 	if (404 == $code) {
 		return $app['twig']->render('error404.twig', array(
 			'code'    => $code,
@@ -88,6 +89,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
 			'code'    => $code,
 		));
 });
+
 
 // run
 $app->run();

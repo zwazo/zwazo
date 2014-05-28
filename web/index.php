@@ -1,9 +1,9 @@
 <?php
 
 define('ROOT_WEB', __DIR__);
-@include_once __DIR__ .'/../app/bootstrap.php';
+@include_once __DIR__ .'/../bootstrap.php';
 
-if (!defined('ROOT_APP') OR !isset($app)) {
+if (!defined('ROOT_DIR') OR !isset($app)) {
 	header('HTTP/1.0 500 Internal Server Error');
 	echo <<<EOB
 <!DOCTYPE HTML>
