@@ -7,10 +7,19 @@
 </head>
 <body>
 
-{% include 'header.html.twig' %}
+<header><div class="inner">{% include 'header.html.twig' ignore missing %}</div></header>
 
+<div id="main"><div class="inner">
 {% include [controller ~ '/' ~ action ~'.html.twig', controller ~ '/frame.twig' ] ignore missing %}
+</div></div>
 
+<footer>
+	<div class="inner">
+		<a id="back_to_top" href="#" style="display: block;" original-title="Back to top">Back to top</a>
+		{% include 'footer.html.twig' ignore missing %}
+		&nbsp;
+	</div>
+</footer>
 
 </body>
 </html>

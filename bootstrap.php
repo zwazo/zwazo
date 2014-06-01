@@ -58,14 +58,15 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app->get('/{controller}/{action}', function($controller, $action) use ($app) {
 	$controller = str_replace('/', '', $controller);
 	$action     = str_replace('/', '', $action);
-	if (empty($controller)) { 
-		return $app->redirect( $app['request']->getUri()."home/index" );
-	} else if (empty($action)) {
-		return $app->redirect( $app['request']->getUri()."{$controller}/index" );
+	if (empty($controller)) {
+		$controller = 'home';
+		// return $app->redirect( $app['request']->getUri()."home/index" );
+	}
+	if (empty($action)) {
+		$action = 'index';
+		// return $app->redirect( $app['request']->getUri()."{$controller}/index" );
 	}
 
-	$content = '...';
-	
 	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
 	if (!class_exists($ctrlnamesp,true)) {
 		$app->abort(404, "{$controller}Controller not Found");
@@ -79,13 +80,14 @@ $app->get('/{controller}/{action}', function($controller, $action) use ($app) {
 		call_user_func_array(array($ctrl,"init"), array(
 			$app
 		));
-		call_user_func_array(array($ctrl,"{$action}Action"), array(
-			
-		));
+		call_user_func(array($ctrl,"{$action}Action"));
 	} catch (Exception $e) {
 		$app->abort(500, $e->getMessage());
 	}
 
+	$ctrl->vars('controller', $controller);
+	$ctrl->vars('action', $action);
+	$ctrl->vars('this_year', date('Y'));
 	return $app['twig']->render('skin.twig', $ctrl->vars() );
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')

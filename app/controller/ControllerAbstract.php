@@ -19,8 +19,8 @@ abstract class ControllerAbstract {
 		if (is_null($this->_name)) { $this->_name = basename(get_class($this)); }
 		$this->_app = $app;
 
-		$this->vars('controller', $app['request']->get('controller'));
-		$this->vars('action', $app['request']->get('action'));
+		// $this->vars('controller', $app['request']->get('controller'));
+		// $this->vars('action', $app['request']->get('action'));
 	}
 
 	/**

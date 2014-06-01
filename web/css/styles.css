@@ -8,46 +8,105 @@ a ,a:link ,a:visited {
 	color: #79d; text-decoration:none;
 }
 
-span.erobase {
-	font-family: Satellite; 
-	font-weight:bold;
-	font-size:1.2em;
-	line-height:35px;
-}
-
 /* ---------------------
- * Structure
- * --------------------- */ 
+ * Structure Globale
+ * --------------------- */
 html, body {
-	background-color:#30303F;
+	background-color:#222;
 	color: #f0f0f0;
 	font-family: Helvetica, Arial;
 	font-size:12px;
 }
 
 header {
+	top:0; left:0; position:fixed;
 	padding:0; margin:0;
-    background: none repeat scroll 0 0 #333333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    color: #EFEFEF;
-    height: 50px;
-    width: 100%;
+	background: none repeat scroll 0 0 #222;
+	box-shadow: 0 0 10px rgba(20, 20, 20, 0.25);
+	width: 100%;
+	color:black;
 }
 
 header nav {
-   margin: 0 auto;
-   width: 960px;
+	background: none repeat scroll 0 0 #222;
 	text-align:center;
 }
 
 header nav ul.big {
+	margin:0 auto;
+	width:500px;
 	display: inline-block;
 }
 
 header nav ul.big li {
-	float:left; cursor: pointer;
-    font-family: LatoBlack; font-size:2em;
-    line-height: 50px;
-    padding: 0 40px;
+	float:left; cursor: default;
+	font-family: LatoBlack; font-size:1.5em;
+	line-height: 35px; min-width:80px;
+	padding: 0 5px; margin:0 30px;
 	font-weight:bold;
+}
+
+header nav ul.big li span.erobase {
+	font-family: Satellite; 
+	font-weight:bold;
+	font-size:1.2em;
+	line-height:20px;
+}
+
+header nav ul.big li a, header nav ul.big li a:link {
+	display:block; width:100%; color:#a0a0a0;
+}
+header nav ul.big li a:hover, header nav ul.big li a:active {
+	color:#e0e0e0;
+}
+header nav ul.big li a.selected, header nav ul.big li a.selected:link {
+	color:#79d;
+}
+
+
+#main { /* tag <main> is not supported by IE */
+	margin-top:40px;
+	background-color:#30303F;
+	width:100%;
+}
+
+footer {
+	border-top: 5px solid #79d;
+	bottom:0; position:relative;
+	width:100%; min-height:100px;
+	position: relative;
+	color: #a0a0a0;
+}
+
+footer  #copyright {
+	border-top: 1px solid #191919;
+	padding-top: 1em; margin-top: 3em;
+	text-align: center; font-size: 11px;
+	color: #5f5f5f;
+}
+
+footer  #copyright a.silex, footer  #copyright a.silex:link {
+	font-family:Overpass; font-weight:bold;
+}
+
+.inner { /* tag <main> is not supported by IE */
+	max-width:998px;
+	min-width:288px;
+	width:99.5%;
+	margin:0 auto;
+}
+
+#main .inner {
+	padding:5px 5px 20px 5px;
+}
+
+/* ---------------------
+ * Common tools
+ * --------------------- */
+
+a#back_to_top {
+	background: url("../img/minicons/totop.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	display: block;
+	height: 45px; width: 45px; margin:-25px 0 0 auto;
+	text-indent: -9999px;
 }
