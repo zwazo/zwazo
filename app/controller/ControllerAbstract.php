@@ -29,9 +29,8 @@ abstract class ControllerAbstract {
 	 * @return  
 	 */
 	public function vars($var=null, $val=null) {
-
 		if (!is_null($val)) {
-		// setters
+		// setter
 			if (is_string($var)) {
 				$this->_vars[ $var ] = $val;
 			}

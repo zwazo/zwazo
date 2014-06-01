@@ -16,7 +16,6 @@ $app = new Silex\Application();
 // ------------------
 use Symfony\Component\HttpFoundation\Response;
 $app->error(function (\Exception $e, $code) use ($app) {
-	echo $e->getMessage();
 	if (404 == $code) {
 		return $app['twig']->render('error404.html.twig', array(
 			'code'    => $code,
