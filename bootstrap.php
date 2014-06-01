@@ -3,10 +3,31 @@
 define('ROOT_DIR', __DIR__ );
 define('ROOT_VENDOR', __DIR__.'/vendor');
 
-require_once ROOT_VENDOR.'/autoload.php';
+$loader = require_once ROOT_VENDOR.'/autoload.php';
+// @see 
+//     https://getcomposer.org/doc/01-basic-usage.md
+//     adding namespaces on the fly, etc.
 
 $app = new Silex\Application();
-//$app['debug'] = true;
+// $app['debug'] = true;
+
+// ------------------
+// Errors display
+// ------------------
+use Symfony\Component\HttpFoundation\Response;
+$app->error(function (\Exception $e, $code) use ($app) {
+	echo $e->getMessage();
+	if (404 == $code) {
+		return $app['twig']->render('error404.html.twig', array(
+			'code'    => $code,
+		));
+	} else {
+		return $app['twig']->render('error.html.twig', array(
+			'code'    => $code,
+			'message' => $e->getMessage(),
+		));
+	}
+});
 
 // ------------------
 // Services
@@ -31,34 +52,42 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 }));
 
 // ------------------
-// Routes
+// routes and Dispatch
 // ------------------
 
 // mca route / default route
 $app->get('/{controller}/{action}', function($controller, $action) use ($app) {
 	$controller = str_replace('/', '', $controller);
 	$action     = str_replace('/', '', $action);
-	if (empty($controller)) { $controller = 'home'; }
-	if (empty($action)) { $action = 'index'; }
-	$content = '...';
-
-	// ...
-
-	
-	try {
-		if (class_exists('App\Controller\Home',true)) {
-			echo 'yes';
-		} else {
-			echo 'no';
-		}
-//		$ctrl = new App\Controller\Foo();
-	} catch (Exception $e) {
-		echo 'derp';
+	if (empty($controller)) { 
+		return $app->redirect( $app['request']->getUri()."home/index" );
+	} else if (empty($action)) {
+		return $app->redirect( $app['request']->getUri()."{$controller}/index" );
 	}
 
-	return $app['twig']->render('skin.twig', array(
-        'content' => $content,
-	));
+	$content = '...';
+	
+	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
+	if (!class_exists($ctrlnamesp,true)) {
+		$app->abort(404, "{$controller}Controller not Found");
+	}
+	$ctrl = new $ctrlnamesp();
+	if (!method_exists($ctrl, "{$action}Action")) {
+		$app->abort(404, "{$controller}::{$action} not Found");
+	}
+
+	try {
+		call_user_func_array(array($ctrl,"init"), array(
+			$app
+		));
+		call_user_func_array(array($ctrl,"{$action}Action"), array(
+			
+		));
+	} catch (Exception $e) {
+		$app->abort(500, $e->getMessage());
+	}
+
+	return $app['twig']->render('skin.twig', $ctrl->vars() );
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
@@ -73,22 +102,6 @@ $app->get('/img', function() use ($app) { /* ... */ })->bind('url_img');
 
 // baseurl
 $app->get('/', function() use ($app) { /* ... */ })->bind('url_base');
-
-// ------------------
-// Errors display
-// ------------------
-use Symfony\Component\HttpFoundation\Response;
-$app->error(function (\Exception $e, $code) use ($app) {
-	echo $e->getMessage();
-	if (404 == $code) {
-		return $app['twig']->render('error404.twig', array(
-			'code'    => $code,
-		));
-	} else 
-		return $app['twig']->render('error.twig', array(
-			'code'    => $code,
-		));
-});
 
 
 // run

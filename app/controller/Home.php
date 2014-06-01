@@ -1,14 +1,14 @@
 <?php
 namespace App\Controller;
 
-use Silex\Application;
-use Symfony\Component\HttpFoundation\Request;
+use App\Controller\ControllerAbstract;
 
-class Home {
+class Home extends ControllerAbstract {
 
-	//public function indexAction(Request $request, Application $app) {
 	public function indexAction() {
-		return 'App\Home::index';
+		// return "{$this->_name}::index";
+		
+		
 	}
 
 }
