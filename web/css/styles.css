@@ -2,13 +2,6 @@
 @import url("fonts.css");
 
 /* ---------------------
- * Main styles
- * --------------------- */ 
-a ,a:link ,a:visited {
-	color: #79d; text-decoration:none;
-}
-
-/* ---------------------
  * Structure Globale
  * --------------------- */
 html, body {
@@ -59,14 +52,10 @@ header nav ul.big li a, header nav ul.big li a:link {
 header nav ul.big li a:hover, header nav ul.big li a:active {
 	color:#e0e0e0;
 }
-header nav ul.big li a.selected, header nav ul.big li a.selected:link {
-	color:#79d;
-}
-
 
 #main { /* tag <main> is not supported by IE */
 	margin-top:40px;
-	background-color:#30303F;
+	background-color:#303030;
 	width:100%;
 }
 
@@ -79,6 +68,7 @@ footer {
 }
 
 footer  #copyright {
+	clear: both;
 	border-top: 1px solid #191919;
 	padding-top: 1em; margin-top: 3em;
 	text-align: center; font-size: 11px;
@@ -100,13 +90,56 @@ footer  #copyright a.silex, footer  #copyright a.silex:link {
 	padding:5px 5px 20px 5px;
 }
 
-/* ---------------------
- * Common tools
- * --------------------- */
-
 a#back_to_top {
 	background: url("../img/minicons/totop.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	display: block;
 	height: 45px; width: 45px; margin:-25px 0 0 auto;
 	text-indent: -9999px;
 }
+
+/* ---------------------
+ * w3c
+ * --------------------- */
+#techno {
+	/* text-align:right;
+	float:right; margin: 15px 0 3em 0;
+	*/
+}
+
+#html5, #css3 {
+	display:inline-block; color:#fff;
+	text-align: center; font-size:10px;
+	font-family:LatoBlack;
+	height:32px; width:32px;
+}
+
+#html5 {
+	background: url(../img/w3c/html5.png) left 12px no-repeat;
+	height:44px;
+}
+
+#css3 {
+	background: url(../img/w3c/css3.png) left 12px no-repeat;
+	height:44px;
+}
+
+
+/* ---------------------
+ * Default styles
+ * --------------------- */ 
+a ,a:link ,a:visited {
+	color: #789; text-decoration:none;
+}
+
+header nav ul.big li a.selected, header nav ul.big li a.selected:link {
+	color:#eff;
+}
+
+#main {
+	background-color:#303030;
+}
+
+footer {
+	border-top: 5px solid #789;
+}
+

@@ -1,9 +1,9 @@
 <nav>
 
 <ul class="big">
-	<li><a href="#" class="{% if 'home' == controller %}selected{% endif %}">Home</a>
-	<li><span class="erobase">e</span>Signets
-	<li>Pro
+	<li><a href="{{ url('url_base') }}home" class="{% if 'home' == controller %}selected{% endif %}">Home</a>
+	<li><a href="{{ url('url_base') }}bookmarks" class="{% if 'bookmarks' == controller %}selected{% endif %}"><span class="erobase">e</span>Signets</a>
+	<li><a href="{{ url('url_base') }}pro" class="{% if 'pro' == controller %}selected{% endif %}">Pro</a>
 </ul>
 
 </nav>

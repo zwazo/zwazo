@@ -1,7 +1,0 @@
-License: 	Creative Commons (Attribution-Share Alike 3.0 Unported)
-			http://creativecommons.org/licenses/by-sa/3.0/
-By: 	    PICOL - http://www.picol.org
-Icon set: 	Picol Vector
-            https://www.iconfinder.com/search/?q=iconset:picol-vector
-Styles: 	Glyph
-

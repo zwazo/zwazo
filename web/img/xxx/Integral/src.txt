@@ -1,5 +1,0 @@
-License: 	Creative Commons (Attribution 3.0 Unported)
-By: 	    spinking
-Icon set: 	Integral
-            https://www.iconfinder.com/search/?q=iconset:integral
-Categories: UI

@@ -1,0 +1,23 @@
+/* ---------------------
+ * Default Styles
+ * --------------------- */ 
+a ,a:link ,a:visited {
+	color: #79d; text-decoration:none;
+}
+
+
+header nav ul.big li a.selected, header nav ul.big li a.selected:link {
+	color:#79d;
+}
+
+#main {
+	background-color:#30303F;
+}
+
+footer {
+	border-top: 5px solid #79d;
+}
+
+/* ---------------------
+ * Other Styles
+ * --------------------- */
