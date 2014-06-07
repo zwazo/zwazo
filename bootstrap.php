@@ -53,19 +53,18 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 // ------------------
 // routes and Dispatch
 // ------------------
+// echo 'baseUrl:'.$app['request']->getBaseUrl();
+// echo 'Uri:'.$app['request']->getUri();
+// echo 'reqUri:'.$app['request']->getRequestUri();
 
 // mca route / default route
-$app->get('/{controller}/{action}', function($controller, $action) use ($app) {
-	$controller = str_replace('/', '', $controller);
-	$action     = str_replace('/', '', $action);
-	if (empty($controller)) {
-		$controller = 'home';
-		// return $app->redirect( $app['request']->getUri()."home/index" );
-	}
-	if (empty($action)) {
-		$action = 'index';
-		// return $app->redirect( $app['request']->getUri()."{$controller}/index" );
-	}
+$app->match('/{controller}/{action}', function($controller, $action) use ($app) {
+	$status_code = 200;
+	$controller  = str_replace('/', '', $controller);
+	$action      = str_replace('/', '', $action);
+	if (empty($controller)) { $controller = 'home'; }
+	if (empty($action)) { $action = 'index'; }
+
 
 	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
 	if (!class_exists($ctrlnamesp,true)) {

@@ -1,21 +1,8 @@
 /* ---------------------
  * Default Styles
  * --------------------- */ 
-a ,a:link ,a:visited {
-	color: #dda65a; text-decoration:none;
-}
-
-
-header nav ul.big li a.selected, header nav ul.big li a.selected:link {
-	color:#dda65a;
-}
-
 #main {
-	background-color:#f2efe9; color:#222;
-}
-
-footer {
-	border-top: 5px solid #dda65a;
+	background: #303030 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
 }
 
 /* ---------------------

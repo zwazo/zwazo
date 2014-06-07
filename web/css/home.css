@@ -11,7 +11,8 @@ header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 }
 
 #main {
-	background-color:#30303F;
+	/* background: #2c2c3c url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0; */
+	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
 }
 
 footer {
