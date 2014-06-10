@@ -50,12 +50,21 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
     return $translator;
 }));
 
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 // ------------------
 // routes and Dispatch
 // ------------------
 // echo 'baseUrl:'.$app['request']->getBaseUrl();
 // echo 'Uri:'.$app['request']->getUri();
 // echo 'reqUri:'.$app['request']->getRequestUri();
+
+$app->get('/logout', function() use ($app) {
+	$app['session']->invalidate();
+	$app['session']->set('isAuthenticated', false);
+	return $app->redirect( $app['request']->getBaseUrl() . '/home' );
+});
+
 
 // mca route / default route
 $app->match('/{controller}/{action}', function($controller, $action) use ($app) {
@@ -64,7 +73,6 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$action      = str_replace('/', '', $action);
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
-
 
 	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
 	if (!class_exists($ctrlnamesp,true)) {
@@ -75,19 +83,33 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		$app->abort(404, "{$controller}::{$action} not Found");
 	}
 
-	try {
-		call_user_func_array(array($ctrl,"init"), array(
-			$app
-		));
-		call_user_func(array($ctrl,"{$action}Action"));
-	} catch (Exception $e) {
-		$app->abort(500, $e->getMessage());
+	if ( in_array($controller,array('aa')) ) {
+// echo 'restricted area!<br/>';
+		$status_code = 401;
+		if (null === $user = $app['session']->get('user')) {
+			
+		}
 	}
 
-	$ctrl->vars('controller', $controller);
-	$ctrl->vars('action', $action);
-	$ctrl->vars('this_year', date('Y'));
-	return $app['twig']->render('skin.twig', $ctrl->vars() );
+	if ( 200 != $status_code ) {
+		return $app['twig']->render('error403.html.twig', array(
+			'code' => 403,
+		));
+	} else {
+		try {
+			call_user_func_array(array($ctrl,"init"), array(
+				$app
+			));
+			call_user_func(array($ctrl,"{$action}Action"));
+		} catch (Exception $e) {
+			$app->abort(500, $e->getMessage());
+		}
+
+		$ctrl->vars('controller', $controller);
+		$ctrl->vars('action', $action);
+		$ctrl->vars('this_year', date('Y'));
+		return $app['twig']->render('skin.twig', $ctrl->vars() );
+	}
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
