@@ -52,6 +52,9 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 
+use Silex\Provider\FormServiceProvider;
+$app->register(new FormServiceProvider());
+
 // ------------------
 // routes and Dispatch
 // ------------------
@@ -65,7 +68,6 @@ $app->get('/logout', function() use ($app) {
 	return $app->redirect( $app['request']->getBaseUrl() . '/home' );
 });
 
-
 // mca route / default route
 $app->match('/{controller}/{action}', function($controller, $action) use ($app) {
 	$status_code = 200;
@@ -73,6 +75,24 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$action      = str_replace('/', '', $action);
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
+
+	if ( in_array($controller,array('aa')) ) {
+		$status_code = 401;
+		$user = $app['session']->get('user');
+// echo 'user: '.$user.'<br/>';
+		if (null !== $user) {
+			if ('zwazo' == $user) {
+				$status_code = 200;
+			} else {
+				$status_code = 403;
+			}
+		}
+		
+		if ( 200 != $status_code ) {
+			$controller = 'account';
+			$action     = 'login';
+		}
+	}
 
 	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
 	if (!class_exists($ctrlnamesp,true)) {
@@ -83,33 +103,23 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		$app->abort(404, "{$controller}::{$action} not Found");
 	}
 
-	if ( in_array($controller,array('aa')) ) {
-// echo 'restricted area!<br/>';
-		$status_code = 401;
-		if (null === $user = $app['session']->get('user')) {
-			
-		}
-	}
-
-	if ( 200 != $status_code ) {
-		return $app['twig']->render('error403.html.twig', array(
-			'code' => 403,
+	try {
+		call_user_func_array(array($ctrl,"init"), array(
+			$app
 		));
-	} else {
-		try {
-			call_user_func_array(array($ctrl,"init"), array(
-				$app
-			));
-			call_user_func(array($ctrl,"{$action}Action"));
-		} catch (Exception $e) {
-			$app->abort(500, $e->getMessage());
+		$ret = call_user_func(array($ctrl,"{$action}Action"));
+		if ('account' == $controller && 'login' == $action && !is_null($ret) ) {
+			return $ret;
 		}
-
-		$ctrl->vars('controller', $controller);
-		$ctrl->vars('action', $action);
-		$ctrl->vars('this_year', date('Y'));
-		return $app['twig']->render('skin.twig', $ctrl->vars() );
+	} catch (Exception $e) {
+		$app->abort(500, $e->getMessage());
 	}
+
+	$ctrl->vars('controller', $controller);
+	$ctrl->vars('action', $action);
+	$ctrl->vars('this_year', date('Y'));
+	return $app['twig']->render('skin.twig', $ctrl->vars() );
+
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
