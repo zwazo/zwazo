@@ -76,7 +76,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
 
-	if ( in_array($controller,array('aa')) ) {
+	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action)) {
 		$status_code = 401;
 		$user = $app['session']->get('user');
 // echo 'user: '.$user.'<br/>';

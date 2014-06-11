@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\ControllerAbstract;
+use App\Helper;
 
 class Account extends ControllerAbstract {
 	
@@ -27,8 +28,27 @@ class Account extends ControllerAbstract {
 		
 		if ($form->isValid()) {
 			$data = $form->getData();
-
-			if ('zwazo' == $data['login']) {
+			
+			$success = false;
+			$salt = 'Zwa:7c0n8L3u00jv';
+			try {
+				$sQuery = 'SELECT COUNT(*) AS qte FROM account WHERE login=:login AND password=:psswd';
+				$res = Helper\Db::query($sQuery, array(
+					':login'  => $data['login']
+					,':psswd' => md5($data['password'].$salt)
+				));
+				if (is_object($res)) {
+					$aAccount = $res->fetch( \PDO::FETCH_ASSOC );
+					$res = null;
+					if (1 == $aAccount['qte']) {
+						$success = true;
+					}
+				}
+			} catch (Exception $e) {
+				$success = false;
+			}
+			
+			if (true == $success) {
 				$this->_app['session']->set('user', $data['login']);
 				return $this->_app->redirect( $next_uri );
 			} else {
@@ -39,8 +59,5 @@ class Account extends ControllerAbstract {
 		$this->vars('form', $form->createView());
 	}
 	
-	public function logoutAction() {
-		
-	}
 	
 }
