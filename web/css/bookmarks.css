@@ -18,6 +18,9 @@ footer {
 	border-top: 5px solid #bf295e;
 }
 
+div.punchline {
+	border-bottom:2px solid #59505b;
+}
 
 /* ---------------------
  * Other Styles

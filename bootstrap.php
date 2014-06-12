@@ -75,10 +75,10 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$action      = str_replace('/', '', $action);
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
-
+	
+	$user = $app['session']->get('user');
 	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action)) {
 		$status_code = 401;
-		$user = $app['session']->get('user');
 // echo 'user: '.$user.'<br/>';
 		if (null !== $user) {
 			if ('zwazo' == $user) {
@@ -118,6 +118,9 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$ctrl->vars('controller', $controller);
 	$ctrl->vars('action', $action);
 	$ctrl->vars('this_year', date('Y'));
+	$ctrl->vars('user', array(
+		'name' => $user,
+	));
 	return $app['twig']->render('skin.twig', $ctrl->vars() );
 
 })

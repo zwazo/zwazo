@@ -6,4 +6,14 @@
 	<li><a href="{{ url('url_base') }}pro" class="{% if 'pro' == controller %}selected{% endif %}">Pro</a>
 </ul>
 
+{% if user.name %}
+<div class="sess">
+<a href="{{ url('url_base') }}logout" class="out">&nbsp;</a>
+{% if 'zwazo' == user.name %}
+<a href="{{ url('url_base') }}aa" class="adm">&nbsp;</a>
+{% endif %}
+</div>
+{% endif %}
+
+
 </nav>
