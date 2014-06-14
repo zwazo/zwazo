@@ -204,17 +204,33 @@ div.sess {
 	float:right; 
 	margin-top:7px;
 }
-div.sess a.out, div.sess a.out:link {
-	display:block; float:right;
-	width:26px; height:24px; margin-left:1em;
-	background: transparent url(../img/minicons/shutdonw.png) 0 0 no-repeat;
+
+div.sess a {
+	display:inline-block;
+	margin-left:1em;
+	padding:2px;
+}
+div.sess a#edit { background-color:none; }
+div.sess a#edit img#edit_off {
+	display:inline;
+}
+div.sess a#edit img#edit_on {
+	display:none;
 }
 
-div.sess a.adm, div.sess a.adm:link {
-	display:block; float:right;
-	width:25px; height:24px; margin-left:1em;
-	background: transparent url(../img/minicons/certificate.png) 0 0 no-repeat;
+div.sess a#edit.active { background-color:#e0e0e0; }
+div.sess a#edit.active img#edit_off {
+	display:none;
 }
+div.sess a#edit.active img#edit_on {
+	display:inline;
+}
+
+div.sess a#edit span#edit_on {
+	background-color:#fff;
+	display:block-inline;
+}
+
 
 /**
  * Structure de page
