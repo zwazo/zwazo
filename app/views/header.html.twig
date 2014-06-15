@@ -8,18 +8,8 @@
 
 {% if user.name %}
 <div class="sess">
-{% if 'zwazo' == user.name %}
-<a href="#" id="edit" ><!-- class="active" -->
-	<img id="edit_off" src="/zwazo/img/icomoon/edit_disabled.svg" height="24px" />
-	<img id="edit_on" src="/zwazo/img/icomoon/edit.svg" height="24px" />
-</a>
-
-
-
-
-<a href="{{ url('url_base') }}aa" ><img src="/zwazo/img/icomoon/fire14.svg" height="24px" /></a>
-{% endif %}
-<a href="{{ url('url_base') }}logout" ><img src="/zwazo/img/icomoon/door9.svg" height="24px" /></a>
+{% if 'zwazo' == user.name %}{% include 'aa/admin.html.twig' ignore missing %}{% endif %}
+<a href="{{ url('url_base') }}logout" ><img src="{{ url('url_base') }}/img/icomoon/door9.svg" height="24px" /></a>
 </div>
 {% endif %}
 

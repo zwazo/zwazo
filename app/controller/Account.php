@@ -32,16 +32,22 @@ class Account extends ControllerAbstract {
 			$success = false;
 			$salt = 'Zwa:7c0n8L3u00jv';
 			try {
-				$sQuery = 'SELECT COUNT(*) AS qte FROM account WHERE login=:login AND password=:psswd';
-				$res = Helper\Db::query($sQuery, array(
-					':login'  => $data['login']
-					,':psswd' => md5($data['password'].$salt)
-				));
-				if (is_object($res)) {
-					$aAccount = $res->fetch( \PDO::FETCH_ASSOC );
-					$res = null;
-					if (1 == $aAccount['qte']) {
-						$success = true;
+				if ( preg_match('/[^a-z0-9\.\-_@]+/i', $data['login']) 
+				  OR preg_match('/[^a-z0-9\.\-\[\]\*\(\)\{\}\+\|\!\/\$_@#&%=]+/i', $data['password'])
+				) {
+					$this->vars('error', 'Le login ou le mot de passe contiennent des caractères non autorisés');
+				} else {
+					$sQuery = 'SELECT COUNT(*) AS qte FROM account WHERE login=:login AND password=:psswd';
+					$res = Helper\Db::query($sQuery, array(
+						':login'  => $data['login']
+						,':psswd' => md5($data['password'].$salt)
+					));
+					if (is_object($res)) {
+						$aAccount = $res->fetch( \PDO::FETCH_ASSOC );
+						$res = null;
+						if (1 == $aAccount['qte']) {
+							$success = true;
+						}
 					}
 				}
 			} catch (Exception $e) {
@@ -49,7 +55,13 @@ class Account extends ControllerAbstract {
 			}
 			
 			if (true == $success) {
+			// make session
 				$this->_app['session']->set('user', $data['login']);
+				if ('zwazo' == $data['login']) { 
+					$this->_app['session']->set('role', 'admin');
+				} else {
+					$this->_app['session']->set('role', 'friend');
+				}
 				return $this->_app->redirect( $next_uri );
 			} else {
 				
