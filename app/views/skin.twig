@@ -10,6 +10,13 @@
 	
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/{{ controller }}.css" media="screen" />
+	
+	<script type="text/javascript" src="{{ url('url_js') }}/jquery-1.11.1.min.js"> </script>
+	
+	{% if user.name and 'zwazo' == user.name %}
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/editor.css" media="screen" />
+	<script type="text/javascript" src="{{ url('url_js') }}/Editor.class.js"> </script>
+	{% endif %}
 </head>
 <body>
 
@@ -18,6 +25,10 @@
 <div id="main"><div class="inner">
 {% include [controller ~ '/' ~ action ~'.html.twig', controller ~ '/frame.twig' ] ignore missing %}
 </div></div>
+
+{% if user.name and 'zwazo' == user.name %}
+{% include 'editor.html.twig' ignore missing %}
+{% endif %}
 
 <footer>
 	<div class="inner">

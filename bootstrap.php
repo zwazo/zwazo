@@ -80,14 +80,14 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$action      = str_replace('/', '', $action);
 	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
-	
+
 	$user      = $app['session']->get('user');
 	$last_time = $app['session']->get('last_time');
 	if (null !== $user) {
 		$app['session']->migrate(false, $cookie_lifetime);
 	}
-	
-	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action)) {
+
+	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action) ) {
 		$status_code = 401;
 // echo 'user: '.$user.'<br/>';
 		if (null !== $user) {
@@ -131,8 +131,8 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$ctrl->vars('user', array(
 		'name' => $user,
 	));
-	return $app['twig']->render('skin.twig', $ctrl->vars() );
-
+	
+	return $app['twig']->render('skin.twig', $ctrl->vars());
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')

@@ -1,0 +1,31 @@
+#editor {
+	position:absolute; z-index:1000;
+	top:50px; right:0;
+}
+
+#editor a.oc, #editor a.oc:link {
+	display:block; float:right; 
+	margin-top:20px; padding:5px;
+	background-color:rgba(18,18,18,0.9);
+	border-radius: 5px 0 0 5px;
+}
+
+#editor div.frame {
+	float:right; display:none;
+	background-color:rgba(18,18,18,0.9);
+	border-radius: 5px 0 0 5px;
+}
+
+#editor.open {
+	width:1000px; height:700px;
+}
+#editor.open div.frame {
+	display:block;
+	width:900px; height:700px;
+}
+#editor.open div.frame iframe {
+	background-color:rgba(18,18,18,1);
+	width:890px; height:690px;
+	margin:5px;
+	border-radius: 5px 0 0 5px;
+}
