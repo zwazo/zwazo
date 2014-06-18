@@ -8,7 +8,7 @@
 
 {% if user.name %}
 <div class="sess">
-{% if 'zwazo' == user.name %}{% include 'aa/admin.html.twig' ignore missing %}{% endif %}
+{% if 'zwazo' == user.name %}{% include 'aa/icard.html.twig' ignore missing %}{% endif %}
 <a href="{{ url('url_base') }}logout" ><img src="{{ url('url_base') }}/img/icomoon/door9.svg" height="24px" /></a>
 </div>
 {% endif %}

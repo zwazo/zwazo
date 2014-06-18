@@ -35,8 +35,11 @@ var Editor = (function() { // namespace
 			if (!_enabled){ return; }
 			if ( jQuery('#editor').hasClass('open') ) {
 				jQuery('#editor').removeClass('open');
+				//jQuery('#editor iframe').attr('src', null );
 			} else {
 				jQuery('#editor').addClass('open');
+				var src = jQuery('#editor iframe').attr('src');
+				jQuery('#editor iframe').attr('src', _baseurl+'aa/editr?x='+_http[0] );
 			}
 		}
 	

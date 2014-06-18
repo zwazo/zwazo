@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>{{ title }}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/iframed.css" media="screen" />
+
+	<script type="text/javascript" src="{{ url('url_js') }}/jquery-1.11.1.min.js"> </script>
+
+</head>
+<body>
+
+{% include [controller ~ '/' ~ action ~'.html.twig', controller ~ '/frame.twig' ] ignore missing %}
+
+</body>
+</html>

@@ -132,7 +132,9 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		'name' => $user,
 	));
 	
-	return $app['twig']->render('skin.twig', $ctrl->vars());
+	$layout = $ctrl->vars('layout');
+	if (empty($layout)) { $layout = 'skin.twig'; }
+	return $app['twig']->render($layout, $ctrl->vars());
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
