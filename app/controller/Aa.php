@@ -23,6 +23,7 @@ class Aa extends ControllerAbstract {
 	 */
 	public function editrAction() {
 		$this->vars('layout', 'iframed.twig');
+		$this->stylesheet('editor.css');
 		
 		$x  = $this->_app['request']->get('x','');
 		$this->_x = explode('/', $x);
@@ -34,13 +35,15 @@ class Aa extends ControllerAbstract {
 			$this->_x[ self::ACTION ] = 'list';
 		}
 
+		$this->vars('editr_ctrl', $this->_x[ self::CONTROLLER ]);
+		$this->vars('editr_act', $this->_x[ self::ACTION ]);
 		$method = '_'.$this->_x[ self::CONTROLLER ].'_'.$this->_x[ self::ACTION ];
 		if (!method_exists($this, $method)) {
 			$content = $this->_editr_404();
 		} else {
 			$content = call_user_func(array($this, $method));
 		}
-		$this->vars('content', $content);
+		
 	}
 	
 	/**
@@ -54,21 +57,15 @@ class Aa extends ControllerAbstract {
 	 *
 	 */
 	private function _bookmarks_list() {
-		return 'bookmarks::list';
+		
 	}
 	
 	/**
 	 *
 	 */
-	private function _bookmarks_list() {
-		return 'bookmarks::list';
+	private function _bookmarks_edit() {
+		$this->vars('edit_case', 'create');
 	}
 	
-	/**
-	 *
-	 */
-	private function _bookmarks_list() {
-		return 'bookmarks::list';
-	}
 	
 }

@@ -29,3 +29,20 @@
 	margin:5px;
 	border-radius: 5px 0 0 5px;
 }
+
+/* --------------------------------------
+ * #Editr
+ * -------------------------------------- */
+div#editr button, div#editr a.btn, div#editr a.btn:link {
+	border:1px solid #555;
+	background-color:#555;
+	color: #fff;
+	cursor:pointer;
+}
+
+div#editr button.add, div#editr a.add {
+	padding:2px 5px 3px 20px;
+	background-image: url(../img/tango/add.svg);
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+}

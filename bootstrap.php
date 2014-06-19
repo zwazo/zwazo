@@ -1,7 +1,11 @@
 <?php
 
 date_default_timezone_set('Europe/Paris');
-$cookie_lifetime = (60*10); // 10min
+
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+
+define('COOKIE_LIFETIME', (60*10)); // 10min
 
 define('ROOT_DIR', __DIR__ );
 define('ROOT_VENDOR', __DIR__.'/vendor');
@@ -54,7 +58,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 }));
 
 $app->register(new Silex\Provider\SessionServiceProvider(null, array(
-	'cookie_lifetime' => $cookie_lifetime,
+	'cookie_lifetime' => COOKIE_LIFETIME,
 )));
 
 use Silex\Provider\FormServiceProvider;
@@ -84,7 +88,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$user      = $app['session']->get('user');
 	$last_time = $app['session']->get('last_time');
 	if (null !== $user) {
-		$app['session']->migrate(false, $cookie_lifetime);
+		$app['session']->migrate(false, COOKIE_LIFETIME);
 	}
 
 	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action) ) {

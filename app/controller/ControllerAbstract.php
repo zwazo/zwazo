@@ -9,6 +9,8 @@ abstract class ControllerAbstract {
 	protected $_name = null;
 	protected $_app  = null;
 	protected $_vars = array();
+	protected $_css  = array();
+	protected $_js   = array();
 
 	abstract public function indexAction();
 
@@ -37,12 +39,34 @@ abstract class ControllerAbstract {
 		} else {
 		// getters
 			if (is_null($var)) { 
-				return $this->_vars;
+				return array(
+					'__src_js'  => $this->_js,
+					'__src_css' => $this->_css,
+				) + $this->_vars;
 			} else if (isset($this->_vars[ $var ])) {
 				return $this->_vars[ $var ];
 			}
 			return null;
 		}
 	}
+	
+	/**
+	 *
+	 */
+	public function stylesheet($src, $media='screen') {
+		$this->_css[ $src ] = array('src' => $src, 'media' => $media);
+	}
+	public function get_stylesheets() {
+		return $this->_css;
+	}
 
+	/**
+	 *
+	 */
+	public function script($src) {
+		$this->_js[ $src ] = array('src' => $src);
+	}
+	public function get_scripts() {
+		return $this->_js;
+	}
 }
