@@ -46,4 +46,11 @@ Class Db {
 		return $stmt;
 	}
 	
+	/**
+	 *
+	 */
+	public static function lastInsertId() {
+		return self::getInstance()->lastInsertId();
+	}
+	
 }

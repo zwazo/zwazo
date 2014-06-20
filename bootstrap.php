@@ -122,7 +122,8 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 			$app
 		));
 		$ret = call_user_func(array($ctrl,"{$action}Action"));
-		if ('account' == $controller && 'login' == $action && !is_null($ret) ) {
+		// if ('account' == $controller && 'login' == $action && !is_null($ret) ) {
+		if ($ret) {
 			return $ret;
 		}
 	} catch (Exception $e) {

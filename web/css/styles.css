@@ -146,7 +146,9 @@ footer {
 }
 
 form {
-	margin:0 0; padding:0 0;
+	display:table;
+	margin:5px auto; padding:2em;
+	
 	border:1px solid #000;
 	background-color:#202020;
 	color:#fff;
@@ -159,6 +161,33 @@ form input, form textarea, form button {
 	background-color:#2a2a2a;
 	color:#fff;
 }
+
+form div#form {
+	display:table-row-group;
+}
+
+form div.footer {
+	display:table-footer-group;
+}
+
+form div#form > div,
+form div.footer > div {
+	display:table-row;
+}
+
+form div#form label,
+form div.footer span.label {
+	display:table-cell; vertical-align:top;
+	padding-right:1em;
+	margin:3px 0;
+}
+
+form div#form input,
+form div.footer input {
+	display:table-cell;
+	margin:3px 0;
+}
+
 
 /* ---------------------
  * Auth

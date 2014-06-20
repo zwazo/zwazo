@@ -33,16 +33,31 @@
 /* --------------------------------------
  * #Editr
  * -------------------------------------- */
-div#editr button, div#editr a.btn, div#editr a.btn:link {
+div#editr button, div#editr .btn, div#editr .btn:link {
 	border:1px solid #555;
 	background-color:#555;
 	color: #fff;
 	cursor:pointer;
 }
 
-div#editr button.add, div#editr a.add {
+div#editr button.add, div#editr .add {
 	padding:2px 5px 3px 20px;
 	background-image: url(../img/tango/add.svg);
 	background-repeat: no-repeat;
 	background-size: 20px 20px;
+	background-position:left center;
+}
+
+div#editr form {
+	background-color: rgba(255,255,255,0.1);
+}
+
+div#editr form button.save, div#editr form .save {
+	padding:2px 5px 3px 23px;
+	background-color:#111;
+	background-color:#111;
+	background-image: url(../img/tango/save.svg);
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position:5px center;
 }

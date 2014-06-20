@@ -15,10 +15,7 @@ class Account extends ControllerAbstract {
 // echo 'goto: '.$next_uri.'<br/>';
 		$this->vars('next_uri', $next_uri);
 
-		$data = array(
-			
-		);
-		
+		$data = array();
 		$form = $this->_app['form.factory']->createBuilder('form', $data)
         ->add('login')
         ->add('password','password')

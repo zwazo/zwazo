@@ -1,1 +1,15 @@
-{{ edit_case }}
+
+
+{% if form %}
+<form action="#" method="post">
+{{ form_widget(form) }} <!-- form_rest -->
+<div class="footer">
+	<div>
+		<span class="label"> </span>
+		<input type="submit" name="submit" value="{{ 'save'|trans }}" class="btn save" />
+	</div>
+</div>
+</form>
+{% else %}
+No form to display
+{% endif %}
