@@ -243,6 +243,31 @@ table tr.odd td {
 	background-color: rgba(255,255,255,0.1);
 }
 
+.box_error {
+	border:1px solid #C66;
+	 margin:3px 1px; padding:7px 10px;
+	color:#C66;
+}
+
+.box_success {
+	border:1px solid #AEFF9E;
+	 margin:3px 1px; padding:7px 10px;
+	color:#AEFF9E;
+}
+
+.box_warning {
+	border:1px solid #DE935F;
+	 margin:3px 1px; padding:7px 10px;
+	color:#DE935F;
+}
+
+.box_notice {
+	border:1px solid #96C3FF;
+	margin:3px 1px; padding:7px 10px;
+	color:#96C3FF;
+}
+
+
 /* ---------------------
  * Auth
  * --------------------- */

@@ -42,7 +42,9 @@ Class Db {
 		if (false === $stmt) {
 			throw new Exception('Unable to perform query preparation');
 		}
-		$stmt->execute($vars);
+		if ( !$stmt->execute($vars) ) {
+			// return false;
+		}
 		return $stmt;
 	}
 	

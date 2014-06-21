@@ -15,7 +15,7 @@
 <tbody>
 <tr class="{{ css }}">
 	<td>
-	{{ item.label }}
+	{{ item.label|raw }}
 	</td><td>
 	<a href="{{ url('url_base') }}aa/editr?x={{ editr_ctrl }}/edit/{{ item.id }}">
 		<img src="{{ url('url_img') }}/icomoon/edit.svg" title="{{ 'edit'|trans }}" height="16px" />

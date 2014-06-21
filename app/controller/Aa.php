@@ -109,28 +109,33 @@ class Aa extends ControllerAbstract {
 				':label' => $data['label'],
 				':desc'  => $data['description'],
 			);
-			
+
 			try {
 
 				if ( !is_numeric($data['id']) ) {
 					$sQuery = 'INSERT INTO bookmark(`url`,`label`,`description`,`create_time`) VALUES (:url,:label,:desc,NOW())';
-					Helper\Db::query($sQuery, $vars);
-					$data['id'] = Helper\Db::lastInsertId();
+					$stmt = Helper\Db::query($sQuery, $vars);
 				} else {
 					$sQuery = 'UPDATE bookmark SET url=:url, label=:label ,description=:desc WHERE id=:id';
 					$vars[':id'] = $data['id'];
-					Helper\Db::query($sQuery, $vars);
+					$stmt = Helper\Db::query($sQuery, $vars);
 				}
-
+				
+				if ( 0 == $stmt->rowCount() ) {
+					$aInfos = $stmt->errorInfo();
+					$this->vars('error', 'SQL ERROR: '.$aInfos[2].' (SQLState: '.$aInfos[0].', Error:'.$aInfos[1].')');
+				} else {
 				// redirect somewhere
-				return $this->_app->redirect( 
-					$this->_app['request']->getBaseUrl() . '/aa/editr?x='
-					.$this->_x[ self::CONTROLLER ].'/list'
-				);
-
+					return $this->_app->redirect( 
+						$this->_app['request']->getBaseUrl() . '/aa/editr?x='
+						.$this->_x[ self::CONTROLLER ].'/list'
+					);
+				}
 			} catch (Exception $e) {
-				echo $e->getMessage();
+				$this->vars('error', $e->getMessage());
 			}
+			
+			
 		}
 		
 		$this->vars('form', $form->createView());
