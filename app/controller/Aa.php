@@ -122,7 +122,7 @@ class Aa extends ControllerAbstract {
 				
 				if ( 0 == $stmt->rowCount() ) {
 					$aInfos = $stmt->errorInfo();
-					$this->vars('error', 'SQL ERROR: '.$aInfos[2].' (SQLState: '.$aInfos[0].', Error:'.$aInfos[1].')');
+					$this->vars('error', 'SQLSTATE['.$aInfos[0].']['.$aInfos[1].'] '.$aInfos[2]);
 				} else {
 				// redirect somewhere
 					return $this->_app->redirect( 

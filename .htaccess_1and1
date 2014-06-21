@@ -1,0 +1,12 @@
+# -- 1and1
+# AddType x-mapp-php5.4 .php
+# AddHandler x-mapp-php5.4 .php
+
+DirectoryIndex index.php index.html index.htm
+
+Options -MultiViews +FollowSymlinks
+RewriteEngine On
+# RewriteBase /zwazo
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
