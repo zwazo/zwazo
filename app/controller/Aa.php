@@ -73,10 +73,9 @@ class Aa extends ControllerAbstract {
 
 		$data = array( 'id' => 'new' );
 		if ( !empty($this->_x[ self::ID ]) && is_numeric($this->_x[ self::ID ]) ) {
-			$res  = Helper\Db::query( "SELECT * FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
-			if (is_object($res)) {
-				$data = $res->fetch( \PDO::FETCH_ASSOC );
-				// Helper\Utils::printr($data);
+			$q  = Helper\Db::query( "SELECT * FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
+			if ( $q->rowCount() ) {
+				$data = $q->fetch( \PDO::FETCH_ASSOC );
 			}
 		}
 

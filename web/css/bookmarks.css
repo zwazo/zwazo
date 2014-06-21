@@ -30,3 +30,54 @@ div.punchline {
 div#editr table th {
 	background-color: #bf295e;
 }
+
+/* ---------------------
+ * Structure de page
+ * --------------------- */
+
+ul.tags {
+	position: absolute;
+	width:180px;
+}
+
+ul.tags li {
+	position:relative;
+	clear:both;
+	margin-bottom:2px;
+}
+ul.tags li a, ul.tags li a:link {
+	display:block;
+	width:160px; height:16px;
+	padding:4px 0 0 3px;
+}
+ul.tags li a:active, ul.tags li a:hover {
+	background-color: rgba(0,0,0,0.15);
+}
+
+ul.tags li.sel a {
+	background-color: rgba(0,0,0,0.3);
+}
+ul.tags li.sel a:after {
+	content:""; position:absolute;
+	left:163px; top:0px;
+	width:0; height:0; 
+	border-top: 10px solid transparent;
+	border-left: 10px solid rgba(0,0,0,0.3);
+	border-bottom: 10px solid transparent;
+} 
+
+div.bookmarks {
+	margin-left:190px;
+}
+
+div.mark {
+	border:1px solid #59505b;
+	background-color: #49404b;
+	padding:5px; margin-bottom:1em;
+}
+
+div.mark img.ico {
+	display:inline-block;
+	vertical-align:text-bottom;
+	margin-right:5px;
+}
