@@ -8,6 +8,7 @@ a ,a:link ,a:visited {
 
 header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 	color:#79d;
+	border-bottom:1px solid #79d;
 }
 
 #main {

@@ -8,6 +8,7 @@ a ,a:link ,a:visited {
 
 header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 	color:#e33773;
+	border-bottom:1px solid #e33773;
 }
 
 #main {
@@ -25,3 +26,7 @@ div.punchline {
 /* ---------------------
  * Other Styles
  * --------------------- */
+ 
+div#editr table th {
+	background-color: #bf295e;
+}

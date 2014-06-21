@@ -33,7 +33,7 @@
 /* --------------------------------------
  * #Editr
  * -------------------------------------- */
-div#editr button, div#editr .btn, div#editr .btn:link {
+div#editr button, div#editr .btn, div#editr .btn:link, div#editr .btn:visited {
 	border:1px solid #555;
 	background-color:#555;
 	color: #fff;
@@ -48,11 +48,19 @@ div#editr button.add, div#editr .add {
 	background-position:left center;
 }
 
-div#editr form {
+div#editr button.back, div#editr .back {
+	padding:2px 5px 3px 20px;
+	background-image: url(../img/tango/back.svg);
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	background-position:left center;
+}
+
+form {
 	background-color: rgba(255,255,255,0.1);
 }
 
-div#editr form button.save, div#editr form .save {
+form button.save, form .save {
 	padding:2px 5px 3px 23px;
 	background-color:#111;
 	background-color:#111;
@@ -60,4 +68,12 @@ div#editr form button.save, div#editr form .save {
 	background-repeat: no-repeat;
 	background-size: 16px 16px;
 	background-position:5px center;
+}
+
+table {
+	border:1px solid black;
+}
+
+table th {
+	background-color: #789;
 }

@@ -51,7 +51,7 @@ header nav ul.big li span.erobase {
 }
 
 header nav ul.big li a, header nav ul.big li a:link {
-	display:block; width:100%; color:#a0a0a0;
+	display:block; width:100%; color:#909090;
 }
 header nav ul.big li a:hover, header nav ul.big li a:active {
 	color:#e0e0e0;
@@ -126,6 +126,47 @@ a#back_to_top {
 }
 
 
+
+/**
+ * Structure de page
+ */
+div.punchline {
+	padding:2em 0;
+	margin:0 0 1.5em 0;
+	border-bottom:1px solid #191919;
+}
+
+ul.tags {
+	width:180px;
+}
+
+ul.tags li {
+	position:relative;
+	clear:both;
+	margin-bottom:2px;
+}
+ul.tags li a, ul.tags li a:link {
+	display:block;
+	width:160px; height:16px;
+	padding:4px 0 0 3px;
+}
+ul.tags li a:active, ul.tags li a:hover {
+	background-color: rgba(0,0,0,0.15);
+}
+
+ul.tags li.sel a {
+	background-color: rgba(0,0,0,0.3);
+}
+ul.tags li.sel a:after {
+	content:""; position:absolute;
+	left:163px; top:0px;
+	width:0; height:0; 
+	border-top: 10px solid transparent;
+	border-left: 10px solid rgba(0,0,0,0.3);
+	border-bottom: 10px solid transparent;
+}
+
+
 /* ---------------------
  * Default styles
  * --------------------- */ 
@@ -135,6 +176,7 @@ a ,a:link ,a:visited {
 
 header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 	color:#eff;
+	border-bottom:1px solid #eff;
 }
 
 #main {
@@ -188,6 +230,18 @@ form div.footer input {
 	margin:3px 0;
 }
 
+table { 
+	width:100%;
+}
+
+table td, table th {
+	padding:2px 3px;
+	border-left:1px solid #000;
+}
+
+table tr.odd td {
+	background-color: rgba(255,255,255,0.1);
+}
 
 /* ---------------------
  * Auth
@@ -260,42 +314,3 @@ div.sess a#edit span#edit_on {
 	display:block-inline;
 }
 
-
-/**
- * Structure de page
- */
-div.punchline {
-	padding:2em 0;
-	margin:0 0 1.5em 0;
-	border-bottom:1px solid #191919;
-}
-
-ul.tags {
-	width:180px;
-}
-
-ul.tags li {
-	position:relative;
-	clear:both;
-	margin-bottom:2px;
-}
-ul.tags li a, ul.tags li a:link {
-	display:block;
-	width:160px; height:16px;
-	padding:4px 0 0 3px;
-}
-ul.tags li a:active, ul.tags li a:hover {
-	background-color: rgba(0,0,0,0.15);
-}
-
-ul.tags li.sel a {
-	background-color: rgba(0,0,0,0.3);
-}
-ul.tags li.sel a:after {
-	content:""; position:absolute;
-	left:163px; top:0px;
-	width:0; height:0; 
-	border-top: 10px solid transparent;
-	border-left: 10px solid rgba(0,0,0,0.3);
-	border-bottom: 10px solid transparent;
-}

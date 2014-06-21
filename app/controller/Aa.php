@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\ControllerAbstract;
 use App\Helper;
+use App\Data;
 
 class Aa extends ControllerAbstract {
 
@@ -23,9 +24,6 @@ class Aa extends ControllerAbstract {
 	 *
 	 */
 	public function editrAction() {
-		$this->vars('layout', 'iframed.twig');
-		$this->stylesheet('editor.css');
-		
 		$x  = $this->_app['request']->get('x','');
 		$this->_x = explode('/', $x);
 		
@@ -35,7 +33,11 @@ class Aa extends ControllerAbstract {
 		} else if (empty($this->_x[ self::ACTION ])) {
 			$this->_x[ self::ACTION ] = 'list';
 		}
-
+		
+		$this->stylesheet( $this->_x[ self::CONTROLLER ].'.css' );
+		$this->stylesheet('editor.css');
+		
+		$this->vars('layout', 'iframed.twig');
 		$this->vars('editr_ctrl', $this->_x[ self::CONTROLLER ]);
 		$this->vars('editr_act', $this->_x[ self::ACTION ]);
 		$method = '_'.$this->_x[ self::CONTROLLER ].'_'.$this->_x[ self::ACTION ];
@@ -49,16 +51,35 @@ class Aa extends ControllerAbstract {
 	 */
 	private function _bookmarks_list() {
 		
+		$res = Helper\Db::query("SELECT COUNT(*) AS tot FROM `bookmark` ");
+		$this->vars('iResults', 0);
+		if (is_object($res)) {
+			$_tmp = $res->fetch( \PDO::FETCH_ASSOC );
+			$this->vars('iResults', $_tmp['tot']);
+			$_tmp = null;
+		}
+
+		$sQuery = "SELECT id,label,url FROM `bookmark` "
+			." ORDER BY id DESC "
+		;
+		$this->vars('Results', Helper\Db::query($sQuery) );
+		
 	}
 	
 	/**
 	 *
 	 */
 	private function _bookmarks_edit() {
-		$this->stylesheet('editr/bookmarks.css');
-	
+
 		$data = array( 'id' => 'new' );
-		
+		if ( !empty($this->_x[ self::ID ]) && is_numeric($this->_x[ self::ID ]) ) {
+			$res  = Helper\Db::query( "SELECT * FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
+			if (is_object($res)) {
+				$data = $res->fetch( \PDO::FETCH_ASSOC );
+				// Helper\Utils::printr($data);
+			}
+		}
+
 		$form = $this->_app['form.factory']->createBuilder('form', $data, array(
 			'csrf_protection' => false // disable csrf ... fails here
 		))
@@ -115,5 +136,20 @@ class Aa extends ControllerAbstract {
 		$this->vars('form', $form->createView());
 	}
 	
+	/**
+	 *
+	 */
+	private function _bookmarks_del() {
+		
+		if ( !empty($this->_x[ self::ID ]) && is_numeric($this->_x[ self::ID ]) ) {
+			Helper\Db::query( "DELETE FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
+		}
+		
+		return $this->_app->redirect( 
+			$this->_app['request']->getBaseUrl() . '/aa/editr?x='
+			.$this->_x[ self::CONTROLLER ].'/list'
+		);
+	}
 	
+
 }

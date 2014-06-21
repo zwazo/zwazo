@@ -26,6 +26,7 @@
     </rdf:RDF>
   </metadata>
   <g
+     transform="matrix(1.5661416,0,0,1.5661416,-13.881476,-12.728626)"
      id="layer1">
     <rect
        width="28.911564"
@@ -35,7 +36,7 @@
        x="9.7942171"
        y="9.5969391"
        id="rect1686"
-       style="color:#000000;fill:#cc0000;fill-opacity:1;fill-rule:evenodd;stroke:#a40000;stroke-width:1.44557822;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible" />
+       style="color:#000000;fill:#c61624;fill-opacity:1;fill-rule:evenodd;stroke:#90000c;stroke-width:1.44557822;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible" />
     <path
        d="M 18.786463,17.648679 30.047937,28.910153"
        id="path1377"
