@@ -1,0 +1,37 @@
+@import url(../font/Lato/Lato-Black.css);
+
+@font-face {
+	font-family: 'Bedas';
+	src: url(../font/BEBAS___.TTF);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Satellite';
+	src: url(../font/Satellite.otf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Overpass';
+	src: url(../font/Overpass_Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'OverpassBold';
+	src: url(../font/Overpass_Bold.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+
+html, body {
+	background-color:#222;
+	color: #f0f0f0;
+	font-family: Helvetica, Arial;
+	font-size:12px;
+}
+
+a ,a:link ,a:visited {
+	color: #79d; text-decoration:none;
+}

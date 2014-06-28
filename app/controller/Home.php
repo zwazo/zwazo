@@ -7,7 +7,7 @@ use App\Helper;
 class Home extends ControllerAbstract {
 
 	public function indexAction() {
-		
+		$this->vars('layout','home.twig');
 		
 	}
 
