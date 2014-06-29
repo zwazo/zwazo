@@ -19,8 +19,23 @@ header {
 }
 
 header nav {
+	position:relative;
 	background: none repeat scroll 0 0 #222;
 	text-align:center;
+}
+
+header nav a#home {
+	position:absolute; top:0; left:0;
+	display:block;
+	overflow:hidden;
+	height:40px; width:40px;
+	background-image: url("../img/icomoon/code9.svg");
+	background-size:24px 24px;
+	background-repeat:no-repeat;
+	background-position:top left;	
+}
+header nav a#home span {
+	margin-left:70px;
 }
 
 header nav ul.big {
