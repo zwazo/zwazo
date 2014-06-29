@@ -48,7 +48,7 @@ div#perso {
 	position:absolute;
 	top:0; left:0;
 	width:50%; height:100%;
-	/* border:1px solid red; */
+	overflow:none;
 }
 
 
@@ -57,15 +57,32 @@ div#pro {
 	position:absolute;
 	top:0; right:0;
 	width:50%; height:100%;
-	/* border:1px solid red; */
+	overflow:none;
 }
 
 div#perso a, div#pro a  {
 	display:block;
-	width:120px; height:160px;
+	width:120px;
 	margin:45% auto;
-	text-align:center;
+	text-align:center; vertical-align:middle;
 	font-family: LatoBlack; font-size:1.7em;
+	text-align:center;
+}
+
+div#perso a  {
+	background-image: url(../img/polo.svg);
+	background-size:contain;
+	background-repeat:no-repeat;
+	
+	padding-top:98px;
+}
+
+div#pro a  {
+	background-image: url(../img/costard.svg);
+	background-size:contain;
+	background-repeat:no-repeat;
+	
+	padding-top:98px;
 }
 
 
