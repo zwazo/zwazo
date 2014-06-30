@@ -1,16 +1,16 @@
 <nav>
 
-<a id="home" href="{{ url('url_base') }}home"><span>Home</span></a>
-
 <ul class="big">
 	<li><a href="{{ url('url_base') }}news" class="{% if 'news' == controller %}selected{% endif %}">News</a>
 	<li><a href="{{ url('url_base') }}bookmarks" class="{% if 'bookmarks' == controller %}selected{% endif %}"><span class="erobase">e</span>Signets</a>
 	<li><a href="{{ url('url_base') }}pro" class="{% if 'pro' == controller %}selected{% endif %}">Pro</a>
 </ul>
 
+{{ user.role }}
+
 {% if user.name %}
 <div class="sess">
-{% if 'zwazo' == user.name %}{% include 'aa/icard.html.twig' ignore missing %}{% endif %}
+{% include 'aa/icard.html.twig' ignore missing %}
 <a href="{{ url('url_base') }}logout" ><img src="{{ url('url_base') }}/img/icomoon/door9.svg" height="24px" /></a>
 </div>
 {% endif %}

@@ -51,7 +51,7 @@ class Aa extends ControllerAbstract {
 	 */
 	private function _bookmarks_list() {
 		
-		$res = Helper\Db::query("SELECT COUNT(*) AS tot FROM `bookmark` ");
+		$res = Helper\Db::query("SELECT COUNT(*) AS tot FROM `".Helper\Conf::DB_PREFIX."bookmark` ");
 		$this->vars('iResults', 0);
 		if (is_object($res)) {
 			$_tmp = $res->fetch( \PDO::FETCH_ASSOC );
@@ -59,7 +59,7 @@ class Aa extends ControllerAbstract {
 			$_tmp = null;
 		}
 
-		$sQuery = "SELECT id,label,url FROM `bookmark` "
+		$sQuery = "SELECT id,label,url FROM `".Helper\Conf::DB_PREFIX."bookmark` "
 			." ORDER BY id DESC "
 		;
 		$this->vars('Results', Helper\Db::query($sQuery) );
@@ -73,7 +73,7 @@ class Aa extends ControllerAbstract {
 
 		$data = array( 'id' => 'new' );
 		if ( !empty($this->_x[ self::ID ]) && is_numeric($this->_x[ self::ID ]) ) {
-			$q  = Helper\Db::query( "SELECT * FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
+			$q  = Helper\Db::query( "SELECT * FROM `".Helper\Conf::DB_PREFIX."bookmark` WHERE id=".$this->_x[ self::ID ] );
 			if ( $q->rowCount() ) {
 				$data = $q->fetch( \PDO::FETCH_ASSOC );
 			}
@@ -112,10 +112,10 @@ class Aa extends ControllerAbstract {
 			try {
 
 				if ( !is_numeric($data['id']) ) {
-					$sQuery = 'INSERT INTO bookmark(`url`,`label`,`description`,`create_time`) VALUES (:url,:label,:desc,NOW())';
+					$sQuery = 'INSERT INTO `'.Helper\Conf::DB_PREFIX.'bookmark`(`url`,`label`,`description`,`create_time`) VALUES (:url,:label,:desc,NOW())';
 					$stmt = Helper\Db::query($sQuery, $vars);
 				} else {
-					$sQuery = 'UPDATE bookmark SET url=:url, label=:label ,description=:desc WHERE id=:id';
+					$sQuery = 'UPDATE `'.Helper\Conf::DB_PREFIX.'bookmark` SET url=:url, label=:label ,description=:desc WHERE id=:id';
 					$vars[':id'] = $data['id'];
 					$stmt = Helper\Db::query($sQuery, $vars);
 				}
@@ -146,7 +146,7 @@ class Aa extends ControllerAbstract {
 	private function _bookmarks_del() {
 		
 		if ( !empty($this->_x[ self::ID ]) && is_numeric($this->_x[ self::ID ]) ) {
-			Helper\Db::query( "DELETE FROM `bookmark` WHERE id=".$this->_x[ self::ID ] );
+			Helper\Db::query( "DELETE FROM `".Helper\Conf::DB_PREFIX."bookmark` WHERE id=".$this->_x[ self::ID ] );
 		}
 		
 		return $this->_app->redirect( 

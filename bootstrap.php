@@ -74,15 +74,16 @@ $app->register(new FormServiceProvider());
 $app->get('/logout', function() use ($app) {
 	$app['session']->invalidate();
 	$app['session']->set('isAuthenticated', false);
-	return $app->redirect( $app['request']->getBaseUrl() . '/home' );
+	return $app->redirect( $app['request']->getBaseUrl() . '/news' );
 });
 
 // mca route / default route
+use App\Helper;
 $app->match('/{controller}/{action}', function($controller, $action) use ($app) {
 	$status_code = 200;
 	$controller  = str_replace('/', '', $controller);
 	$action      = str_replace('/', '', $action);
-	if (empty($controller)) { $controller = 'home'; }
+	if (empty($controller)) { $controller = 'news'; }
 	if (empty($action)) { $action = 'index'; }
 
 	$user      = $app['session']->get('user');
@@ -95,7 +96,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		$status_code = 401;
 // echo 'user: '.$user.'<br/>';
 		if (null !== $user) {
-			if ('zwazo' == $user) {
+			if (Helper\Conf::SITE_ADMIN == $user) {
 				$status_code = 200;
 			} else {
 				$status_code = 403;
@@ -135,6 +136,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$ctrl->vars('this_year', date('Y'));
 	$ctrl->vars('user', array(
 		'name' => $user,
+		'role' => $app['session']->get('role','anonymous'),
 	));
 	
 	$layout = $ctrl->vars('layout');

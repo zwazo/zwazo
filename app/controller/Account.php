@@ -34,7 +34,8 @@ class Account extends ControllerAbstract {
 				) {
 					$this->vars('error', 'Le login ou le mot de passe contiennent des caractères non autorisés');
 				} else {
-					$sQuery = 'SELECT COUNT(*) AS qte FROM account WHERE login=:login AND password=:psswd';
+					$sQuery = 'SELECT COUNT(*) AS qte FROM `'.Helper\Conf::DB_PREFIX.'account` WHERE login=:login AND password=:psswd';
+// echo 'pwd: '.md5($data['password'].$salt);
 					$res = Helper\Db::query($sQuery, array(
 						':login'  => $data['login']
 						,':psswd' => md5($data['password'].$salt)
@@ -54,7 +55,7 @@ class Account extends ControllerAbstract {
 			if (true == $success) {
 			// make session
 				$this->_app['session']->set('user', $data['login']);
-				if ('zwazo' == $data['login']) { 
+				if (Helper\Conf::SITE_ADMIN == $data['login']) { 
 					$this->_app['session']->set('role', 'admin');
 				} else {
 					$this->_app['session']->set('role', 'friend');

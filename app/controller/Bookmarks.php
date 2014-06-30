@@ -8,7 +8,7 @@ class Bookmarks extends ControllerAbstract {
 
 	public function indexAction() {
 		
-		$q = Helper\Db::query("SELECT url,label,id,description FROM bookmark ORDER BY id DESC LIMIT 10");
+		$q = Helper\Db::query("SELECT url,label,id,description FROM `".Helper\Conf::DB_PREFIX."bookmark` ORDER BY id DESC LIMIT 10");
 		if ( $q->rowCount() ) {
 			$this->vars('Results', $q);
 		}

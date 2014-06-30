@@ -1,1 +1,3 @@
-<a href="{{ url('url_base') }}aa" ><img src="/zwazo/img/icomoon/fire14.svg" height="24px" /></a>
+{% if 'admin' == user.role %}
+<a href="{{ url('url_base') }}aa" ><img src="{{ url('url_img') }}/icomoon/fire14.svg" height="24px" /></a>
+{% endif %}

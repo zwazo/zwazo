@@ -1,0 +1,29 @@
+CREATE TABLE `zwazo_account` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`login` VARCHAR(200) NOT NULL,
+	`password` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `zwazo_bookmark` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`url` VARCHAR(255) NOT NULL,
+	`label` VARCHAR(100) NOT NULL,
+	`description` VARCHAR(255) NULL DEFAULT NULL,
+	`create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `zwazo_tag` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`label` VARCHAR(30) NOT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','a7090720cdf53fc9e7473f865a9e2387');
