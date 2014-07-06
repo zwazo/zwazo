@@ -1,0 +1,62 @@
+/* ---------------------
+ * Default Styles
+ * --------------------- */ 
+a ,a:link ,a:visited {
+	color: #79d; text-decoration:none; /* 9D414A */
+}
+
+header nav ul.big li a.selected, header nav ul.big li a.selected:link {
+	color:#79d;
+	border-bottom:1px solid #79d;
+}
+ 
+#main {
+	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+}
+
+footer {
+	border-top: 5px solid #79d;
+}
+
+div.punchline {
+	border-bottom:2px solid #555;
+}
+
+/* ---------------------
+ * Other Styles
+ * --------------------- */
+
+div#unslider-wrapper { margin-top:2em; }
+div#unslider-wrapper .banner ul li { height:400px; }
+div#unslider-wrapper a.unslider-arrow {
+	top:184px; /* = ((400 - 32) / 2) */
+} 
+ 
+a.slide-elm {
+	display:block; 
+	width:100%; height:400px;
+	padding:0;
+}
+
+a.slide-elm  div.center  {
+	width:800px; height:400px;
+	margin:0 auto;
+	vertical-align:middle;
+}
+
+.slide-elm  div.txt {
+	position:relative; float:left;
+	width:50%; padding-top:100px;
+}
+.slide-elm  div.txt span.titre {
+	display:block;
+	font-family: LatoBlack; font-size:2.5em;
+	font-weight:bold;
+}
+
+.slide-elm  div.img {
+	width:50%; float:left;
+	text-align:center;
+	vertical-align:middle;
+}
+

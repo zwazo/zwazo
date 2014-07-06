@@ -21,10 +21,33 @@ abstract class ControllerAbstract {
 		if (is_null($this->_name)) { $this->_name = basename(get_class($this)); }
 		$this->_app = $app;
 
-		// $this->vars('controller', $app['request']->get('controller'));
-		// $this->vars('action', $app['request']->get('action'));
+		$controller = $app['request']->get('controller');
+		if (empty($controller)) { $controller = strtolower($this->_name); }
+
+		// css and js detection
+		if (file_exists(ROOT_DIR."/web/css/p_{$controller}.css")) {
+			$this->stylesheet("p_{$controller}.css");
+		}
+		if (file_exists(ROOT_DIR."/web/js/p_{$controller}.js")) {
+			$this->script("p_{$controller}.js");
+		}
 	}
 
+	/**
+	 *
+	 */
+	public function reset($key) {
+		if ('stylesheet' == $key) {
+			$this->_css = array();
+		}
+		if ('script' == $key) {
+			$this->_js = array();
+		}
+		if ('vars' == $key) {
+			$this->_vars = array();
+		}
+	}
+	
 	/**
 	 * @param  mixed $var   
 	 * @param  mixed $val

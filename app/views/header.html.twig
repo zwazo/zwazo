@@ -6,8 +6,6 @@
 	<li><a href="{{ url('url_base') }}pro" class="{% if 'pro' == controller %}selected{% endif %}">Pro</a>
 </ul>
 
-{{ user.role }}
-
 {% if user.name %}
 <div class="sess">
 {% include 'aa/icard.html.twig' ignore missing %}

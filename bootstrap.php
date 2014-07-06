@@ -83,7 +83,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	$status_code = 200;
 	$controller  = str_replace('/', '', $controller);
 	$action      = str_replace('/', '', $action);
-	if (empty($controller)) { $controller = 'news'; }
+	if (empty($controller)) { $controller = 'home'; }
 	if (empty($action)) { $action = 'index'; }
 
 	$user      = $app['session']->get('user');
@@ -109,7 +109,8 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		}
 	}
 
-	$ctrlnamesp = 'App\Controller\\'.ucfirst($controller);
+	// controller::action detection
+	$ctrlnamesp = 'App\\Controller\\'.ucfirst($controller);
 	if (!class_exists($ctrlnamesp,true)) {
 		$app->abort(404, "{$controller}Controller not Found");
 	}
@@ -117,7 +118,7 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	if (!method_exists($ctrl, "{$action}Action")) {
 		$app->abort(404, "{$controller}::{$action} not Found");
 	}
-
+	
 	try {
 		call_user_func_array(array($ctrl,"init"), array(
 			$app

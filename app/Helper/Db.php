@@ -14,16 +14,16 @@ Class Db {
 	}
 	
 	/**
-	 * database.default.adapter = pdo_mysql
-    * database.default.params.host = db1538.1and1.fr 
-    * database.default.params.username = dbo249106289
-    * database.default.params.password = 7conDios5T
-    * database.default.params.dbname = db249106289
+	 *
 	 */
 	public static function getInstance() {
 		if (is_null(self::$_instance)) {
+			$dsn = 'mysql:dbname=db249106289;host=127.0.0.1';
+			if ('prod' == getenv('ENV')) {
+				$dsn = 'mysql:dbname=db249106289;host=db1538.1and1.fr';
+			}
 			self::$_instance = new \PDO(
-				'mysql:dbname=db249106289;host=db1538.1and1.fr'
+				$dsn
 				,'dbo249106289'
 				,'7conDios5T' // password
 			);

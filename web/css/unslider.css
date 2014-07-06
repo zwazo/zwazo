@@ -1,0 +1,62 @@
+div#unslider-wrapper {
+	position:relative;
+	border-radius: 10px;
+	padding:5px;
+}
+
+div#unslider-wrapper .banner { 
+	position:relative; overflow: auto;
+	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	border-radius: 10px;
+}
+div#unslider-wrapper .banner li { list-style: none; }
+div#unslider-wrapper .banner ul li { float: left; }
+div#unslider-wrapper .banner ul li { min-height:200px; }
+
+div#unslider-wrapper .banner .dots {
+	position:absolute;
+	bottom:5px; right:0;
+	margin-right:50%;
+}
+
+div#unslider-wrapper .banner .dots li.active {
+	background: none repeat scroll 0 0 #fff;
+	opacity: 1;
+}
+
+div#unslider-wrapper .banner .dots li {
+	border: 2px solid #fff;
+	border-radius: 6px;
+	cursor: pointer;
+	display: inline-block;
+	
+	height: 6px; width: 6px;
+	
+	margin: 0 4px;
+	opacity: 0.4;
+	text-indent: -999em;
+	
+	-webkit-transition: background .5s, opacity .5s;
+	-moz-transition: background .5s, opacity .5s;
+	transition: background .5s, opacity .5s;
+}
+
+div#unslider-wrapper a.unslider-arrow {
+	position:absolute;
+	top:101px;
+	display:inline-block;
+	width:32px; height:32px;
+	text-indent: -999em;
+	background-repeat:no-repeat;
+	background-size:32px 32px;
+}
+
+div#unslider-wrapper a.next {
+	right:5px;
+	background-image:url(../img/miu/next2.svg);
+}
+
+div#unslider-wrapper a.prev {
+	left:5px;
+	background-image:url(../img/miu/prev2.svg);
+}

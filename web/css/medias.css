@@ -1,0 +1,15 @@
+@media screen and (max-width: 640px) {
+
+	#main {
+		background-image:none;
+	}
+
+}
+
+@media (orientation:portrait) and (max-width: 640px) {
+
+	#main {
+		background-image:none;
+	}
+
+}

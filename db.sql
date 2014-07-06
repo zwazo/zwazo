@@ -26,4 +26,5 @@ CREATE TABLE `zwazo_tag` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
-INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','a7090720cdf53fc9e7473f865a9e2387');
+-- pwd = 7conDios1A
+INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','ca0ba7612d2980603569bca01713226d'); 

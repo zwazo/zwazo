@@ -9,9 +9,6 @@ use App\Controller\ControllerAbstract;
 class News extends ControllerAbstract {
 
 	public function indexAction() {
-		
-		
-		
 	}
 
 }
