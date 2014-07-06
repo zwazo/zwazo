@@ -18,8 +18,9 @@ Class Db {
 	 */
 	public static function getInstance() {
 		if (is_null(self::$_instance)) {
-			$dsn = 'mysql:dbname=db249106289;host=127.0.0.1';
-			if ('prod' == getenv('ENV')) {
+			if ('dev' == getenv('ENV')) {
+				$dsn = 'mysql:dbname=db249106289;host=127.0.0.1';
+			} else {
 				$dsn = 'mysql:dbname=db249106289;host=db1538.1and1.fr';
 			}
 			self::$_instance = new \PDO(

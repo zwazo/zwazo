@@ -9,11 +9,15 @@ use App\Controller\ControllerAbstract;
 class Home extends ControllerAbstract {
 
 	public function indexAction() {
-		$this->script('unslider.min.js');
+		
 		
 		$this->reset('stylesheet');
 		$this->stylesheet('unslider.css');
 		$this->stylesheet('p_home.css');
+		
+		$this->reset('script');
+		$this->script('unslider.min.js');
+		$this->script('p_home.js');
 	}
 
 }

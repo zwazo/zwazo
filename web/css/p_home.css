@@ -26,7 +26,10 @@ div.punchline {
  * Other Styles
  * --------------------- */
 
-div#unslider-wrapper { margin-top:2em; }
+div#unslider-wrapper { 
+	margin-top:2em; 
+	height:400px;
+}
 div#unslider-wrapper .banner ul li { height:400px; }
 div#unslider-wrapper a.unslider-arrow {
 	top:184px; /* = ((400 - 32) / 2) */

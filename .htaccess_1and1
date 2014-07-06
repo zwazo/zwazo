@@ -4,6 +4,8 @@
 
 DirectoryIndex index.php index.html index.htm
 
+SetEnv ENV prod
+
 Options -MultiViews +FollowSymlinks
 RewriteEngine On
 # RewriteBase /zwazo
