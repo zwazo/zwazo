@@ -58,8 +58,22 @@ a.slide-elm  div.center  {
 }
 
 .slide-elm  div.img {
-	width:50%; float:left;
+	position:relative; float:left;
+	width:49%; height:370px;
 	text-align:center;
 	vertical-align:middle;
 }
 
+.slide-elm  div.img img#rss {
+	position:absolute;
+	top:10%; right:10%;
+}
+
+.slide-elm  div.img img#news {
+	position:absolute;
+	bottom:10%; left:10%;
+}
+
+.slide-elm  div.img img#pro {
+	margin:10% auto 0 auto;
+}
