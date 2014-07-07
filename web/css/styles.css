@@ -168,7 +168,7 @@ form input, form textarea, form button {
 	color:#fff;
 }
 
-form div#form {
+form div#form, form div.group {
 	display:table-row-group;
 }
 
@@ -177,19 +177,19 @@ form div.footer {
 }
 
 form div#form > div,
+form div.group > div,
+form div.group-btn > div,
 form div.footer > div {
 	display:table-row;
 }
 
-form div#form label,
-form div.footer span.label {
+form label, form span.label {
 	display:table-cell; vertical-align:top;
 	padding-right:1em;
 	margin:3px 0;
 }
 
-form div#form input,
-form div.footer input {
+form input {
 	display:table-cell;
 	margin:3px 0;
 }

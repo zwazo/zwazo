@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class ControllerAbstract {
 
-	protected $_name = null;
+	protected $_name = null; // use _classname()
 	protected $_app  = null;
 	protected $_vars = array();
 	protected $_css  = array();
@@ -18,11 +18,11 @@ abstract class ControllerAbstract {
 	 *
 	 */
 	public function init($app) {
-		if (is_null($this->_name)) { $this->_name = basename(get_class($this)); }
+		if (is_null($this->_name)) { $this->_name = $this->_classname(); }
 		$this->_app = $app;
 
 		$controller = $app['request']->get('controller');
-		if (empty($controller)) { $controller = strtolower($this->_name); }
+		if (empty($controller)) { $controller = strtolower($this->_classname()); }
 
 		// css and js detection
 		if (file_exists(ROOT_DIR."/web/css/p_{$controller}.css")) {
@@ -33,6 +33,13 @@ abstract class ControllerAbstract {
 		}
 	}
 
+	/**
+	 *
+	 */
+	final function _classname() {
+		return basename(get_class($this));
+	}
+	
 	/**
 	 *
 	 */

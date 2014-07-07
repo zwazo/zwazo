@@ -57,7 +57,17 @@ div#editr button.back, div#editr .back {
 }
 
 form {
+	width:100%;
+	padding:0 0;
+	border:none;
+}
+
+form fieldset {
+	border:1px solid #000;
 	background-color: rgba(255,255,255,0.1);
+	color:#fff;
+	padding:2em;
+	margin-bottom:1em;
 }
 
 form button.save, form .save {

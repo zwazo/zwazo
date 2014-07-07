@@ -3,10 +3,12 @@ De nombreux signets pratiques; classés par sujets pour y accéder plus rapideme
 </div>
 
 <ul class="tags">
-<li class="sel"><a href="">Derniers signets</a></li>
-<li><a href="">Navigateurs</a></li>
-<li><a href="">Dév. Web</a></li>
-<li><a href="">Design</a></li>
+<li {% if not id_tag %}class="sel"{% endif %}><a href="{{ url('url_base') }}{{ controller }}">Derniers signets</a></li>
+{% if Tags %}
+{% for tag in Tags %}
+<li {% if tag.id == id_tag %}class="sel"{% endif %}><a href="{{ url('url_base') }}{{ controller }}/filter/{{ tag.id }}">{{ tag.label }}</a></li>
+{% endfor %}
+{% endif %}
 </ul>
 
 <div class="bookmarks">

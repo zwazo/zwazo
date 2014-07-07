@@ -79,7 +79,7 @@ $app->get('/logout', function() use ($app) {
 
 // mca route / default route
 use App\Helper;
-$app->match('/{controller}/{action}', function($controller, $action) use ($app) {
+$app->match('/{controller}/{action}/{ref}', function($controller, $action, $ref) use ($app) {
 	$status_code = 200;
 	$controller  = str_replace('/', '', $controller);
 	$action      = str_replace('/', '', $action);
@@ -92,7 +92,11 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 		$app['session']->migrate(false, COOKIE_LIFETIME);
 	}
 
-	if ( in_array($controller,array('aa')) OR ('account' == $controller && 'login' != $action) ) {
+	$aEditrActs = array('edit','del','list');
+	if ( in_array($controller,array('aa','editr')) 
+	  OR in_array($action,$aEditrActs)
+	  OR ('account' == $controller && 'login' != $action)
+	) {
 		$status_code = 401;
 // echo 'user: '.$user.'<br/>';
 		if (null !== $user) {
@@ -141,13 +145,22 @@ $app->match('/{controller}/{action}', function($controller, $action) use ($app) 
 	));
 	
 	$layout = $ctrl->vars('layout');
-	if (empty($layout)) { $layout = 'skin.twig'; }
+	if (empty($layout)) { 
+		if (in_array($action,$aEditrActs)) {
+			$layout = 'iframed.twig';
+			$ctrl->stylesheet("editr/{$controller}.css");
+			$ctrl->stylesheet('editor.css');
+		} else {
+			$layout = 'skin.twig';
+		}
+	}
 	return $app['twig']->render($layout, $ctrl->vars());
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
 ->value('controller', null)
 ->value('action', null)
+->value('ref', null)
 ;
 
 // static routes

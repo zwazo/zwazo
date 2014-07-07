@@ -39,7 +39,7 @@ var Editor = (function() { // namespace
 			} else {
 				jQuery('#editor').addClass('open');
 				var src = jQuery('#editor iframe').attr('src');
-				jQuery('#editor iframe').attr('src', _baseurl+'aa/editr?x='+_http[0] );
+				jQuery('#editor iframe').attr('src', _baseurl+_http[0]+'/list' );
 			}
 		}
 	
