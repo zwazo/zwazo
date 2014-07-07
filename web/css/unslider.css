@@ -45,18 +45,31 @@ div#unslider-wrapper a.unslider-arrow {
 	position:absolute;
 	top:101px;
 	display:inline-block;
-	width:32px; height:32px;
+	width:24px; height:24px;
 	text-indent: -999em;
 	background-repeat:no-repeat;
-	background-size:32px 32px;
 }
 
-div#unslider-wrapper a.next {
+div#unslider-wrapper a.next, div#unslider-wrapper a.next:link {
 	right:5px;
-	background-image:url(../img/miu/next2.svg);
+	background-image:url(../img/miu/next.svg);
+	background-size:24px 24px;
 }
 
-div#unslider-wrapper a.prev {
+div#unslider-wrapper a.prev, div#unslider-wrapper a.prev:link {
 	left:5px;
-	background-image:url(../img/miu/prev2.svg);
+	background-image:url(../img/miu/prev.svg);
+	background-size:24px 24px;
+}
+
+div#unslider-wrapper a.next:active, div#unslider-wrapper a.next:hover {
+	right:5px;
+	background-image:url(../img/miu/next_active.svg);
+	background-size:24px 24px;
+}
+
+div#unslider-wrapper a.prev:active, div#unslider-wrapper a.prev:hover {
+	left:5px;
+	background-image:url(../img/miu/prev_active.svg);
+	background-size:24px 24px;
 }

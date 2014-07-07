@@ -13,7 +13,7 @@
    width="22px"
    id="svg2"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="prev.svg">
+   sodipodi:docname="prev2.svg">
   <metadata
      id="metadata12">
     <rdf:RDF>
@@ -34,12 +34,12 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1559"
-     inkscape:window-height="960"
+     inkscape:window-width="710"
+     inkscape:window-height="480"
      id="namedview10"
      showgrid="false"
      inkscape:zoom="10.727273"
-     inkscape:cx="-5.0338983"
+     inkscape:cx="11"
      inkscape:cy="11"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -56,8 +56,8 @@
      stroke="none"
      stroke-width="1">
     <path
-       d="M 22,11 C 22,4.9248674 17.075133,0 11,0 4.9248675,0 0,4.9248674 0,11 0,17.075132 4.9248675,22 11,22 17.075133,22 22,17.075132 22,11 z M 9.8545644,11.420562 13.743652,15.309649 12.323223,16.730078 7.0199224,11.426777 12.676777,5.7699224 14.09099,7.184136 9.8545644,11.420562 z"
-       id="circle_next_arrow_disclosure_glyph"
+       d="M 22,11 C 22,4.9248674 17.075133,0 11,0 4.9248675,0 0,4.9248674 0,11 0,17.075132 4.9248675,22 11,22 17.075133,22 22,17.075132 22,11 z M 1,11 C 1,5.4771522 5.4771522,1 11,1 16.522848,1 21,5.4771522 21,11 21,16.522848 16.522848,21 11,21 5.4771522,21 1,16.522848 1,11 z m 8.8545644,0.420562 3.8890876,3.889087 -1.420429,1.420429 L 7.0199224,11.426777 12.676777,5.7699224 14.09099,7.184136 9.8545644,11.420562 z"
+       id="circle_next_arrow_disclosure_outline_stroke"
        inkscape:connector-curvature="0"
        style="fill:#ffffff;fill-opacity:0.26666668" />
   </g>
