@@ -1,12 +1,10 @@
 div#unslider-wrapper {
 	position:relative;
 	border-radius: 10px;
-	padding:5px;
 }
 
 div#unslider-wrapper .banner { 
 	position:relative; overflow: auto;
-	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
 	border-radius: 10px;
 }
 div#unslider-wrapper .banner li { list-style: none; }

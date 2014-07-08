@@ -24,6 +24,14 @@ body > header nav {
 	text-align:center;
 }
 
+body > header nav a#home, body > header nav a#home:link {
+	position:absolute; left:0; top:0;
+	background-image: url(../img/tango/home.svg);
+	background-size:35px 35px;
+	height:35px; width:35px;
+	text-indent: -9999px;
+}
+
 body > header nav ul.big {
 	margin:0 auto;
 	width:500px;

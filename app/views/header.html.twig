@@ -1,5 +1,7 @@
 <nav>
 
+<a href="{{ url('url_base') }}" id="home">Home</a>
+
 <ul class="big">
 	<li><a href="{{ url('url_base') }}news" class="{% if 'news' == controller %}selected{% endif %}">News</a>
 	<li><a href="{{ url('url_base') }}bookmarks" class="{% if 'bookmarks' == controller %}selected{% endif %}"><span class="erobase">e</span>Signets</a>
