@@ -60,7 +60,7 @@ class Tags extends ControllerAbstract {
 				} else {
 				// redirect somewhere
 					return $this->_app->redirect( 
-						$this->_app['request']->getBaseUrl() . '/'.$this->_classname().'/list'
+						$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
 					);
 				}
 			} catch (Exception $e) {
@@ -74,6 +74,7 @@ class Tags extends ControllerAbstract {
 	}
 
 	public function listAction() {
+	
 		$res = Helper\Db::query("SELECT COUNT(*) AS tot FROM `".Helper\Conf::DB_PREFIX."tag` ");
 		$this->vars('iResults', 0);
 		if (is_object($res)) {
@@ -97,7 +98,7 @@ class Tags extends ControllerAbstract {
 		}
 		
 		return $this->_app->redirect( 
-			$this->_app['request']->getBaseUrl() . '/'.$this->_classname().'/list'
+			$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
 		);
 		
 	}

@@ -90,7 +90,7 @@ class Bookmarks extends ControllerAbstract {
 				} else {
 				// redirect somewhere
 					return $this->_app->redirect( 
-						$this->_app['request']->getBaseUrl() . '/'.$this->_classname().'/list'
+						$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
 					);
 				}
 			} catch (Exception $e) {
@@ -127,7 +127,7 @@ class Bookmarks extends ControllerAbstract {
 		}
 		
 		return $this->_app->redirect( 
-			$this->_app['request']->getBaseUrl() . '/'.$this->_classname().'/list'
+			$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
 		);
 		
 	}

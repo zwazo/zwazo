@@ -37,7 +37,14 @@ abstract class ControllerAbstract {
 	 *
 	 */
 	final function _classname() {
-		return basename(get_class($this));
+		return basename( str_replace('\\','/',get_class($this)) );
+	}
+	
+	/**
+	 *
+	 */
+	final function _controller() {
+		return strtolower($this->_classname());
 	}
 	
 	/**
