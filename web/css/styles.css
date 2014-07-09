@@ -31,6 +31,9 @@ body > header nav a#home, body > header nav a#home:link {
 	height:35px; width:35px;
 	text-indent: -9999px;
 }
+body > header nav a#home:active, body > header nav a#home:hover {
+	background-image: url(../img/tango/home_active.svg);
+}
 
 body > header nav ul.big {
 	margin:0 auto;
