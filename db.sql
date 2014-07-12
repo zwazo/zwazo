@@ -28,3 +28,13 @@ ENGINE=InnoDB;
 
 -- pwd = 7conDios1A
 INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','ca0ba7612d2980603569bca01713226d'); 
+
+CREATE TABLE `zwazo_news` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(50) NULL DEFAULT NULL,
+	`description` VARCHAR(255) NULL DEFAULT NULL,
+	`create_time` DATETIME NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;

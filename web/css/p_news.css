@@ -25,3 +25,41 @@ div.punchline {
 /* ---------------------
  * Other Styles
  * --------------------- */
+
+ul.follow {
+	position: absolute;
+	width:180px;
+}
+
+ul.follow li {
+	float:left; width:25%;
+}
+
+ul.follow li a, ul.follow li a:link {
+	display:block; 
+	width:32px; height:32px;
+	text-indent: -9999px;
+	border-radius: 5px;
+}
+
+ul.follow li a.youtube, ul.follow li a.youtube:link {
+	background:transparent url(../img/social/youtube.png) top left no-repeat;
+	background-size:32px 32px;
+	
+}
+
+div.news {
+	margin-left:190px;
+}
+
+div.info {
+	border:1px solid #304050;
+	background-color: #323946;
+	padding:5px; margin-bottom:1em;
+}
+div.info  .title {
+	color:#79f; font-weight:bold;
+}
+div.info  > p {
+	margin:5px 0 0 0;
+}

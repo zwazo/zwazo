@@ -92,6 +92,7 @@ body > footer  #copyright a.silex, footer  #copyright a.silex:link {
 	min-width:288px;
 	width:99.5%;
 	margin:0 auto;
+	position:relative;
 }
 
 #main .inner {

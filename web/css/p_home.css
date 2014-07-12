@@ -123,3 +123,30 @@ li.pro div.img {
 li.pro span.titre, li.pro span.goto {
 	color:#a98;
 }
+
+a#play-pause, a#play-pause:link {
+	bottom: 5px;
+	position: absolute;
+	right:0; margin-right:10px;
+	padding-right:20px;
+	height:16px; width:60px;
+	display:none; color:#b0b0b0;
+	text-align:right;
+}
+
+a#play-pause.pause, a#play-pause.pause:link {
+	display:block;
+	height:16px;
+	background-image:url(../img/miu/pause.svg);
+	background-position:top right;
+	background-size:16px 16px;
+	background-repeat:no-repeat;
+}
+
+a#play-pause.play, a#play-pause.play:link {
+	display:block;
+	height:16px;
+	background-image:url(../img/miu/play.svg);
+	background-size:16px 16px;
+	background-repeat:no-repeat;
+}
