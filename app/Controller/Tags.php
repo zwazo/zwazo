@@ -12,6 +12,20 @@ class Tags extends ControllerAbstract {
 		
 	}
 	
+	public function completeAction() {
+		$this->vars('layout','json'); // pseudo layout, absorb $output
+		$res= array();
+		
+		$srch = $this->_app['request']->get('srch','');
+		if (strlen($srch) > 2) {
+			$q  = Helper\Db::query( "SELECT * FROM `".Helper\Conf::DB_PREFIX."tag` WHERE label LIKE('".$srch."%')" );
+			while ($tag = $q->fetch(\PDO::FETCH_ASSOC)) {
+				$res[] = $tag;
+			}
+		}
+		$this->vars('output', $res );
+	}
+	
 	public function editAction() {
 		
 		$id = $this->_app['request']->get('ref','');

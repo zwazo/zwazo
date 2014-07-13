@@ -78,6 +78,7 @@ class Bookmarks extends ControllerAbstract {
 				if ( !is_numeric($data['id']) ) {
 					$sQuery = 'INSERT INTO `'.Helper\Conf::DB_PREFIX.'bookmark`(`url`,`label`,`description`,`create_time`) VALUES (:url,:label,:desc,NOW())';
 					$stmt = Helper\Db::query($sQuery, $vars);
+					$vars[':id'] = Helper\Db::lastInsertId();
 				} else {
 					$sQuery = 'UPDATE `'.Helper\Conf::DB_PREFIX.'bookmark` SET url=:url, label=:label ,description=:desc WHERE id=:id';
 					$vars[':id'] = $data['id'];
@@ -88,18 +89,24 @@ class Bookmarks extends ControllerAbstract {
 					$aInfos = $stmt->errorInfo();
 					$this->vars('error', 'SQLSTATE['.$aInfos[0].']['.$aInfos[1].'] '.$aInfos[2]);
 				} else {
-				// redirect somewhere
-					return $this->_app->redirect( 
-						$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
-					);
+					if ( empty($id) ) {
+					// back to the form to allow tag linkage
+						return $this->_app->redirect( 
+							$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/edit/'.$vars[':id']
+						);
+					} else {
+					// redirect somewhere
+						return $this->_app->redirect( 
+							$this->_app['request']->getBaseUrl() . '/'.$this->_controller().'/list'
+						);
+					}
 				}
 			} catch (Exception $e) {
 				$this->vars('error', $e->getMessage());
 			}
-			
-			
 		}
 		
+		$this->vars('id', $id);
 		$this->vars('form', $form->createView());
 	}
 

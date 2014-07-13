@@ -19,6 +19,7 @@
 </fieldset>
 </form>
 
+{% if id %}
 <form action="#" method="post">
 <fieldset>
 <div class="group">
@@ -35,12 +36,12 @@
 <div class="group">
 	<div>
 		<span class="label"> </span>
-		<span>...</span>
+		<ul id="tags-list"> </ul>
 	</div>
 </div>
 </fieldset>
 </form>
-
+{% endif %}
 
 {% else %}
 No form to display

@@ -22,6 +22,8 @@ div.punchline {
 	border-bottom:2px solid #555;
 }
 
+a#home { display:none; }
+
 /* ---------------------
  * Other Styles
  * --------------------- */
@@ -85,8 +87,12 @@ a.slide-elm  div.center  {
 }
 
 
+.banner li {
+	background-color:#404040; /*  #323946 #303030 #404040 */
+}
+
 li.news {
-	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	/*background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;*/
 }
 li.news div.img {
 	background-image: url(../img/tango/news.svg);
@@ -99,7 +105,7 @@ li.marks span.titre, li.marks span.goto {
 }
 
 li.marks {
-	background: #49404b url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	/*background: #49404b url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;*/
 }
 li.marks div.img {
 	background-image: url(../img/tango/signets.svg);
@@ -112,7 +118,7 @@ li.marks span.titre, li.marks span.goto {
 }
 
 li.pro {
-	background: #444 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	/*background: #444 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;*/
 }
 li.pro div.img {
 	background-image: url(../img/costard.svg);

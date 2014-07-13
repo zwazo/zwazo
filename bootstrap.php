@@ -154,7 +154,12 @@ $app->match('/{controller}/{action}/{ref}', function($controller, $action, $ref)
 			$layout = 'skin.twig';
 		}
 	}
-	return $app['twig']->render($layout, $ctrl->vars());
+	
+	if('json' == $layout) {
+		return $app->json($ctrl->vars('output'));
+	} else {
+		return $app['twig']->render($layout, $ctrl->vars());
+	}
 })
 ->assert('controller', '[a-zA-Z0-9]+/*')
 ->assert('action', '[a-zA-Z0-9]+/*')
