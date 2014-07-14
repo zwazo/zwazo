@@ -46,6 +46,7 @@ a ,a:link ,a:visited {
 }
 
 footer {
+	border-top: 5px solid #79d;
 	padding-top:2em;
 }
 
