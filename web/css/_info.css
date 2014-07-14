@@ -1,0 +1,30 @@
+section#info {
+	background-color:#FB5; /* #FFA500 = orange */
+	color:#333;
+}
+ 
+section#info div.section-top {
+	background-color:#222;
+}
+ 
+section#info div.section-top div.title {
+	background-color:#FB5;
+}
+
+nav ul li a.info div.icon {
+	background-image: url(../img/icomoon/rss24.svg);
+}
+
+
+section#info .last-activity {
+	margin-top:5px;
+}
+section#info .last-activity .title {
+	font-family: LatoBlack; 
+	line-height: 1.2em; font-size:1.1em;
+	font-weight:bold;
+}
+
+
+
+
