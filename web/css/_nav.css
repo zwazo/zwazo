@@ -1,16 +1,21 @@
+
 nav {
+	/*border-top: 5px solid #79d;*/
+	border-top: 1px solid #79d;
+	position:relative;
 	background-color:#222;
 	color:#fed;
 }
 
 nav div.section-top {
-	background-color:#323946;
-	padding-top:2px;
+	display:none; /* desabled  <<  behaves strangely */
+	
+	position:absolute; top:-20px;
+	width:100%;
+	border:none;
 }
-
 nav div.section-top div.title {
 	background-color:#222;
-	line-height:1.1em;
 }
 
 nav ul {

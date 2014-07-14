@@ -1,22 +1,16 @@
-section#signet {
-	background-color:#49404b; /* b25 #bf295e = fushia */
-	color:#fed;
-}
- 
-section#signet div.section-top {
-	background-color:#a98;
-}
- 
-section#signet div.section-top div.title {
-	background-color:#49404b;
-} 
-
-section#signet div.section-top div.title span.erobase {
-	font-family: Satellite;
-   font-size: 1.2em;
-   line-height: 20px;
-}
 
 nav ul li a.signet div.icon {
 	background-image: url(../img/icomoon/book92.svg);
 }
+
+section#signet,
+div#signet {
+	background-color:#49404b; /* b25 #bf295e = fushia */
+	color:#fed;
+}
+
+section#signet div.section-top div.title,
+div#signet div.section-top div.title {
+	background-color:#49404b;
+}
+ 

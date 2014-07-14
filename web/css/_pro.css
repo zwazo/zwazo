@@ -1,15 +1,3 @@
-section#pro {
-	background-color:#a98;
-	color:#333;
-}
- 
-section#pro div.section-top {
-	background-color:#FB5;
-}
- 
-section#pro div.section-top div.title {
-	background-color:#a98;
-}
 
 nav ul li a.pro div.icon {
 	background-image: url(../img/icomoon/code9.svg);
@@ -20,4 +8,15 @@ nav ul li a.pro div.icon {
 nav ul li:hover a.pro div.icon {
 	width:144px; height:144px;
 	background-size:144px 144px;
+}
+
+
+section#pro, div#pro {
+	background-color:#a98;
+	color:#333;
+}
+
+section#pro div.section-top div.title,
+div#pro div.section-top div.title {
+	background-color:#a98;
 }
