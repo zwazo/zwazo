@@ -11,7 +11,8 @@ header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 }
  
 #main {
-	background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	/*background: #323946 url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;*/
+	background-color: #393c46;
 }
 
 footer {
@@ -53,9 +54,8 @@ div.news {
 }
 
 div.info {
-	border:1px solid #304050;
-	background-color: #323946;
-	padding:5px; margin-bottom:1em;
+	background-color: rgba(0,0,0,0.2);
+	padding:1em; margin-bottom:1em;
 }
 div.info  .title {
 	color:#79f; font-weight:bold;

@@ -12,7 +12,8 @@ header nav ul.big li a.selected, header nav ul.big li a.selected:link {
 }
 
 #main {
-	background: #49404b url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;
+	/*background: #49404b url(../img/noisy-texture-100x100-o8-d23-c-3e3e52-t1.png) 0 0;*/
+	background-color: #47424f;
 }
 
 footer {
@@ -71,8 +72,7 @@ div.bookmarks {
 }
 
 div.mark {
-	border:1px solid #59505b;
-	background-color: #49404b;
+	background-color: rgba(0,0,0,0.2);
 	padding:5px; margin-bottom:1em;
 }
 

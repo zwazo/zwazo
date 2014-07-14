@@ -10,7 +10,7 @@ class Home extends ControllerAbstract {
 
 	public function indexAction() {
 		
-		
+		/*
 		$this->reset('stylesheet');
 		$this->stylesheet('unslider.css');
 		$this->stylesheet('p_home.css');
@@ -18,6 +18,11 @@ class Home extends ControllerAbstract {
 		$this->reset('script');
 		$this->script('unslider.min.js');
 		$this->script('p_home.js');
+		*/
+		
+		
+		$this->vars('layout', 'home.html.twig');
+		
 	}
 
 }
