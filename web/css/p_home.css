@@ -6,7 +6,7 @@
 /* sections
  * -----------------------------*/ 
 @import url("_nav.css");
-@import url("_info.css");
+@import url("_actu.css");
 @import url("_pro.css");
 @import url("_signet.css");
 
@@ -15,24 +15,19 @@
 
 header {
 	background-color:#323946;
-	padding:4em 0;
+	padding:5em 0;
 }
 
 header div#anim {
 	position:relative;
-	width:90%;
-	min-width:300px; max-width:900px; height:300px;
-	margin:0 auto;
 	text-align:center;
 	overflow:hidden;
-	padding:5px;
 }
 
 header h1 {
 	color:#79d;
 	font-weight:bold; font-family: LatoBlack;
 	font-size:3.2em; line-height:1em;
-	margin-top:1em;
 }
 header h2 {
 	margin:0 auto;
@@ -97,14 +92,25 @@ section .desc .punchline {
 /* sub-menu
  * -----------------------------*/ 
 
-ul.sub-menu { /* nothing */ }
+ul.sub-menu {
+	width:512px; margin:2em auto;
+}
 
 ul.sub-menu li {
+	width:150px; /*height:130px;*/
 	float:left;
-	margin-left:30px;
 	text-align:center;
 	overflow:hidden;
 }
-ul.sub-menu li.first {
-	margin-left:0;
+ul.sub-menu li.center {
+	margin:0 31px;
 }
+
+ul.sub-menu li a {
+	position: relative;
+	display: block;
+	height:130px; width:150px;
+	background-color:#404040;
+	padding-top:10px;
+}
+

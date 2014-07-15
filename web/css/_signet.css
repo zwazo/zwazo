@@ -3,6 +3,11 @@ nav ul li a.signet div.icon {
 	background-image: url(../img/icomoon/book92.svg);
 }
 
+nav ul li:hover a.signet div.icon {
+	opacity:0.3;
+	background-image: url(../img/icomoon/book92_hover.svg);
+}
+
 section#signet,
 div#signet {
 	background-color:#49404b; /* b25 #bf295e = fushia */

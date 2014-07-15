@@ -36,11 +36,13 @@ a ,a:link ,a:visited {
 	color: #79d; text-decoration:none;
 }
 
+.clear { clear:both; }
 
-.inner {
+/* media adjustable */
+.ma {
 	position:relative;
-	width:99%;
-	max-width:998px;
+	width:100%;
+	max-width:980px;
 	min-width:288px;
 	margin:0 auto;
 }

@@ -6,6 +6,8 @@ nav ul li a.pro div.icon {
 	width:80px; height:80px;
 }
 nav ul li:hover a.pro div.icon {
+	opacity:0.3;
+	background-image: url(../img/icomoon/code9_hover.svg);
 	width:144px; height:144px;
 	background-size:144px 144px;
 }

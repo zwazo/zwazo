@@ -7,9 +7,14 @@
 	<meta name="description" content="Personal Website">
 	<meta name="keywords" content="zwazobleu, Bookmarks,Notes,Informatique,Développeur">
 	<meta name="author" content="Raphaël (zwazo) RUDLER">
+	<meta name="viewport" content="width=device-width" />
 	
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/p_home.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/medias.css" media="screen" />
+	
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/ie.css" media="screen" />
+	<![endif]-->
 
 	<script type="text/javascript" src="{{ url('url_js') }}/jquery-2.1.1.min.js"> </script>
 	<script type="text/javascript" src="{{ url('url_js') }}/p_home.js"> </script>
@@ -19,7 +24,7 @@
 
 <!-- nice logo -->
 <header>
-	<div id="anim">
+	<div id="anim" class="ma">
 		<h1>Zwazo-Bleu</h1>
 		<h2>Site Perso et Institutionnel</h2>
 		<p><cite>"Par ce que le parcour prend de l'int&eacute;ret par les paysages qu'il traverse"</cite>- zwazo</p>
@@ -27,20 +32,20 @@
 </header>
 
 <nav>
-<div class="section-top">
+<!-- div class="section-top">
 	<div class="title">Navigation</div>
-</div>
+</div -->
 <div class="section-ctnt">
 {% include 'home_nav.html.twig' ignore missing %}
 </div>
 </nav>
 
-<section id="info">
+<section id="actu">
 <div class="section-top">
-	<div class="title">Infos</div>
+	<div class="title">Actualit&eacute;</div>
 </div>
 <div class="section-ctnt">
-{% include 'home_info.html.twig' ignore missing %}
+{% include 'home_actu.html.twig' ignore missing %}
 </div>
 </section>
 
@@ -66,7 +71,7 @@
 
 <!-- info + join -->
 <footer>
-	<div class="inner">
+	<div class="ma">
 		{% include 'footer.html.twig' ignore missing %}
 		&nbsp;
 	</div>
