@@ -9,20 +9,17 @@
 	#error-min {
 		width:250px;
 		margin:10% auto; padding:15px 20px;
-		background-color:#334;
+		font-family:'Lato';
 		border:1px solid #557;
 	}
-	#error-min span.errnum {
-		display:block; text-align:center;
-		font-family: LatoBlack, 'Bedas' , 'Arial Black';
-		font-size: 60px; margin-bottom:10px;
+	.errnum {
+		display:block; text-align:center; font-weight:bold;
+		font-size:60px;
 	}
-	#error-min span.errmsg {
-		font-family: LatoBlack, 'Bedas', 'Arial Black';
-		display:block; text-align:center;
-		font-size:16px; font-weight:bold;
+	.errmsg {
+		display:block; text-align:center; font-weight:bold;
+		font-size:16px;
 	}
-	
 	</style>
 </head>
 <body>
@@ -38,7 +35,7 @@ Il s'agit peut être d'une faute de frappe, merci de vérifier à nouveau l'adre
 Dans le cas contraire, vous pouvez reprendre votre navigation depuis l'une des pages ci-dessous:
 </p>&nbsp;
 <ul>
-	<li><a class="home" href="{{ url('url_base') }}">Accueil</a>
+	<li><a href="{{ url('url_base') }}">Accueil</a>
 	<!-- <li><a class="contact" href="#">Contact</a> -->
 </ul>
 </div>

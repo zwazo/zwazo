@@ -1,0 +1,127 @@
+@font-face {
+	font-family: 'icomoon-ext';
+	src:url('icomoon-ext.eot?-hl0yld');
+	src:url('icomoon-ext.eot?#iefix-hl0yld') format('embedded-opentype'),
+		url('icomoon-ext.woff?-hl0yld') format('woff'),
+		url('icomoon-ext.ttf?-hl0yld') format('truetype'),
+		url('icomoon-ext.svg?-hl0yld#icomoon-ext') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icom-"], [class*=" icom-"] {
+	font-family: 'icomoon-ext';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icom-share:before {
+	content: "\e600";
+}
+.icom-mail:before {
+	content: "\e601";
+}
+.icom-googleplus:before {
+	content: "\e602";
+}
+.icom-google-drive:before {
+	content: "\e603";
+}
+.icom-facebook:before {
+	content: "\e604";
+}
+.icom-instagram:before {
+	content: "\e605";
+}
+.icom-twitter:before {
+	content: "\e606";
+}
+.icom-feed:before {
+	content: "\e607";
+}
+.icom-youtube:before {
+	content: "\e608";
+}
+.icom-vimeo:before {
+	content: "\e609";
+}
+.icom-flickr:before {
+	content: "\e60a";
+}
+.icom-picassa:before {
+	content: "\e60b";
+}
+.icom-deviantart:before {
+	content: "\e60c";
+}
+.icom-steam:before {
+	content: "\e60d";
+}
+.icom-github:before {
+	content: "\e60e";
+}
+.icom-github2:before {
+	content: "\e60f";
+}
+.icom-blogger:before {
+	content: "\e610";
+}
+.icom-tux:before {
+	content: "\e611";
+}
+.icom-android:before {
+	content: "\e612";
+}
+.icom-windows8:before {
+	content: "\e613";
+}
+.icom-soundcloud:before {
+	content: "\e614";
+}
+.icom-skype:before {
+	content: "\e615";
+}
+.icom-linkedin:before {
+	content: "\e616";
+}
+.icom-file-pdf:before {
+	content: "\e617";
+}
+.icom-file-openoffice:before {
+	content: "\e618";
+}
+.icom-file-word:before {
+	content: "\e619";
+}
+.icom-file-excel:before {
+	content: "\e61a";
+}
+.icom-html5:before {
+	content: "\e61b";
+}
+.icom-css3:before {
+	content: "\e61c";
+}
+.icom-chrome:before {
+	content: "\e61d";
+}
+.icom-firefox:before {
+	content: "\e61e";
+}
+.icom-IE:before {
+	content: "\e61f";
+}
+.icom-opera:before {
+	content: "\e620";
+}
+.icom-safari:before {
+	content: "\e621";
+}

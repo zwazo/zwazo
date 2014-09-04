@@ -9,72 +9,28 @@
 	<meta name="author" content="Raphaël (zwazo) RUDLER">
 	<meta name="viewport" content="width=device-width" />
 	
-	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/p_home.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/medias.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles.css" media="screen" title="Default Style" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ url('url_css') }}/darker.css" media="screen" title="Darker Style" />
 	
 	<!--[if IE]>
-	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/ie.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles-ie.css" media="screen" />
 	<![endif]-->
 
 	<script type="text/javascript" src="{{ url('url_js') }}/jquery-2.1.1.min.js"> </script>
-	<script type="text/javascript" src="{{ url('url_js') }}/p_home.js"> </script>
 
 </head>
 <body>
 
-<!-- nice logo -->
-<header>
-	<div id="anim" class="ma">
-		<h1>Zwazo-Bleu</h1>
-		<h2>Site Perso et Institutionnel</h2>
-		<p><cite>"Par ce que le parcour prend de l'int&eacute;ret par les paysages qu'il traverse"</cite>- zwazo</p>
+	{% include '_header.html.twig' ignore missing %}
+
+	<!-- [ backlog ] [ misc ] -->
+	
+	<div class="site-main">
+	
 	</div>
-</header>
 
-<nav>
-<!-- div class="section-top">
-	<div class="title">Navigation</div>
-</div -->
-<div class="section-ctnt">
-{% include 'home_nav.html.twig' ignore missing %}
-</div>
-</nav>
 
-<section id="actu">
-<div class="section-top">
-	<div class="title">Actualit&eacute;</div>
-</div>
-<div class="section-ctnt">
-{% include 'home_actu.html.twig' ignore missing %}
-</div>
-</section>
-
-<section id="pro">
-<div class="section-top">
-	<div class="title">Pro</div>
-</div>
-<div class="section-ctnt">
-{% include 'home_pro.html.twig' ignore missing %}
-</div>
-</section>
-
-<section id="signet">
-<div class="section-top">
-	<div class="title"><span class="erobase">e</span>Signets</div>
-</div>
-<div class="section-ctnt">
-{% include 'home_signet.html.twig' ignore missing %}
-</div>
-</section>
-
-<a href="#" id="top">Top</a>
-
-<!-- info + join -->
-<footer>
-	<div class="ma">
-		{% include 'footer.html.twig' ignore missing %}
-		&nbsp;
-	</div>
-</footer>
+	{% include '_footer.html.twig' ignore missing %}
+	
 </body>
 </html>
