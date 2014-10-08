@@ -1,0 +1,6 @@
+input, textarea { 
+	margin:0; padding:1px 2px; background-color:#444;
+	border:1px solid #555; color:#aaa;
+}
+form label { display:block; margin-top:2px; }
+form .footer { padding-top:5px; }

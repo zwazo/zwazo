@@ -1,8 +1,0 @@
-# -----------------------------
-# HTTP Error Codes
-# http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
-# -----------------------------
-HttpError401: "Unauthorized"
-HttpError403: "Forbidden"
-HttpError404: "Page Not Found"
-

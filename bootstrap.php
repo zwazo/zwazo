@@ -45,14 +45,14 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // translation service
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
-    'locale_fallbacks' => array('en'),
+    'locale_fallbacks' => array('fr'),
 ));
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
-    $translator->addResource('yaml', ROOT_DIR.'/app/locales/en.yml', 'en');
-    // $translator->addResource('yaml', ROOT_APP.'/locales/fr.yml', 'fr');
+    // $translator->addResource('yaml', ROOT_DIR.'/app/locales/en.yml', 'en');
+    $translator->addResource('yaml', ROOT_DIR.'/app/locales/fr.yml', 'fr');
 
     return $translator;
 }));
@@ -75,6 +75,10 @@ $app->get('/logout', function() use ($app) {
 	$app['session']->invalidate();
 	$app['session']->set('isAuthenticated', false);
 	return $app->redirect( $app['request']->getBaseUrl() . '/news' );
+});
+
+$app->get('/article/{ref}', function($ref) use ($app) {
+	return $app->redirect( $app['request']->getBaseUrl() . '/article/index/'.$ref );
 });
 
 // mca route / default route
@@ -122,7 +126,7 @@ $app->match('/{controller}/{action}/{ref}', function($controller, $action, $ref)
 	if (!method_exists($ctrl, "{$action}Action")) {
 		$app->abort(404, "{$controller}::{$action} not Found");
 	}
-	
+
 	try {
 		call_user_func_array(array($ctrl,"init"), array(
 			$app
@@ -143,18 +147,10 @@ $app->match('/{controller}/{action}/{ref}', function($controller, $action, $ref)
 		'name' => $user,
 		'role' => $app['session']->get('role','anonymous'),
 	));
-	
+
 	$layout = $ctrl->vars('layout');
-	if (empty($layout)) { 
-		if (in_array($action,$aEditrActs)) {
-			$layout = 'iframed.twig';
-			$ctrl->stylesheet("editr/{$controller}.css");
-			$ctrl->stylesheet('editor.css');
-		} else {
-			$layout = 'skin.twig';
-		}
-	}
-	
+	if (empty($layout)) { $layout = 'skin.twig'; }
+
 	if('json' == $layout) {
 		return $app->json($ctrl->vars('output'));
 	} else {

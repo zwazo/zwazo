@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width" />
 	
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles.css" media="screen" title="Default Style" />
-	<link rel="alternate stylesheet" type="text/css" href="{{ url('url_css') }}/darker.css" media="screen" title="Darker Style" />
+	<link rel="alternate stylesheet" type="text/css" href="{{ url('url_css') }}/bright.css" media="screen" title="Brighter Style" />
 	
 	<!--[if IE]>
 	<link rel="stylesheet" type="text/css" href="{{ url('url_css') }}/styles-ie.css" media="screen" />
@@ -20,17 +20,45 @@
 
 </head>
 <body>
-
 	{% include '_header.html.twig' ignore missing %}
 
-	<!-- [ backlog ] [ misc ] -->
+	<table cellpadding="0" cellspacing="2" width="100%">
+	<tbody>
+	<tr valign="top">
 	
-	<div class="site-main">
-	
-	</div>
+		<td>
+			{% for item in Memos %}
+			{% set ItemTags = item.tags|split(',') %}
+			<article class="{% for itemt in ItemTags %}tag_{{ itemt }} {% endfor %} {% if 1 != item.publicated %}tmp{% endif %}">
+			<a href="{{ url('url_base') }}article/{{ item.id }}" class="article-home grey">
+			<header>{{ item.title|raw }}</header>
+			<div>{{ item.description }}</div>
+			</a>
+			</article>
+			{% endfor %}
+		</td>
+		
+		<td width="180px">
+			<div id="summary">
+			<span class="menur-title">{{ "menur-summary"|trans }}</span>
+			<ul class="tags">
+			{% for item in Tags %}
+				<li class="sel">&nbsp;{{ item.label }}</li>
+			{% endfor %}
+			</ul>
+			</div>
+			
+			<div id="some">
+			<span class="menur-title">{{ "menur-followme"|trans }}</span>
+				<a href="https://www.youtube.com/channel/UC3AH_aGMPsiiGQ4OCvTOTPQ" target="_blank" height="35px"><img src="img/some/youtube.png" title="youtube:zwazobleu" /></a>
+				<a href="http://zwazobleu.deviantart.com/" target="_blank" height="35px"><img src="img/some/da.png" title="deviantart:zwazobleu" /></a>
+			</div>		
+		</td>
 
+	</tr>
+	</tbody>
+	</table>
 
 	{% include '_footer.html.twig' ignore missing %}
-	
 </body>
 </html>

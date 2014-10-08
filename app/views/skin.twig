@@ -28,16 +28,10 @@
 	{% endif %}
 </head>
 <body>
+	{% include '_header.html.twig' ignore missing %}
 
-	<div class="site-header">
-	<div class="site-header-title1">Zwazo-Bleu</div>
-	-&nbsp; Backlog &nbsp;-
-	</div>
+	{% include [controller ~ '/' ~ action ~'.html.twig', controller ~ '/frame.twig' ] ignore missing %}
 
-<div class="site-main">
-{% include [controller ~ '/' ~ action ~'.html.twig', controller ~ '/frame.twig' ] ignore missing %}
-</div>
-
-
+	{% include '_footer.html.twig' ignore missing %}
 </body>
 </html>

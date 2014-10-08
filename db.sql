@@ -6,17 +6,8 @@ CREATE TABLE `zwazo_account` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
-
-CREATE TABLE `zwazo_bookmark` (
-	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`url` VARCHAR(255) NOT NULL,
-	`label` VARCHAR(100) NOT NULL,
-	`description` VARCHAR(255) NULL DEFAULT NULL,
-	`create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id`)
-)
-COLLATE='utf8_general_ci'
-ENGINE=InnoDB;
+-- pwd = 7conDios1A
+INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','ca0ba7612d2980603569bca01713226d'); 
 
 CREATE TABLE `zwazo_tag` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -26,15 +17,22 @@ CREATE TABLE `zwazo_tag` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
--- pwd = 7conDios1A
-INSERT INTO `zwazo_account`(id,login,password) VALUES(79,'aogara','ca0ba7612d2980603569bca01713226d'); 
-
-CREATE TABLE `zwazo_news` (
-	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`title` VARCHAR(50) NULL DEFAULT NULL,
-	`description` VARCHAR(255) NULL DEFAULT NULL,
-	`create_time` DATETIME NULL DEFAULT NULL,
+CREATE TABLE `zwazo_memo` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`cdate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`mdate` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`title` VARCHAR(50) NOT NULL DEFAULT '0',
+	`description` BLOB NULL,
+	`article` BLOB NULL,
+	`publicated` TINYINT(2) NULL DEFAULT '0',
 	PRIMARY KEY (`id`)
 )
 COLLATE='utf8_general_ci'
+ENGINE=InnoDB;
+
+CREATE TABLE `zwazo_tag_memo` (
+	`id_tag` INT(11) UNSIGNED NOT NULL,
+	`id_memo` INT(11) UNSIGNED NOT NULL,
+	UNIQUE INDEX `Index 1` (`id_tag`, `id_memo`)
+)
 ENGINE=InnoDB;

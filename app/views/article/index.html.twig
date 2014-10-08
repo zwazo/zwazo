@@ -1,0 +1,11 @@
+{% if Article %}
+<article>
+<header>{{ Article.title }}</header>
+<div class="article-desc">
+{{ Article.description }}
+</div>
+<div class="article-full">
+{{ Article.article|raw }}
+</div>
+</article>
+{% endif %}

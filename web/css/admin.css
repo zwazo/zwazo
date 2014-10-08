@@ -1,0 +1,18 @@
+@import '../fonts/icomoon-min.css';
+
+a.btn-list {
+	display:block; float:left;
+	width:20px; overflow:hidden;
+	text-decoration:none;
+	margin-right:5px;
+}
+.btn-edit::before {
+	font-family:'icomoon-min';
+	content:'\e601 \00a0';
+	color:#aaa;
+}
+.btn-delete::before {
+	font-family:'icomoon-min';
+	content:'\e638 \00a0';
+	color:#d00;
+}

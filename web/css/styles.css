@@ -1,4 +1,19 @@
-@import "fonts";
-@import "all";
-@import "forms";
+@import "./fonts.css";
+@import "./all.css";
+@import "./forms.css";
 
+
+.article-home, .article-home:link {
+	display:block; text-decoration:none;
+}
+.article-home:active header, .article-home:hover header {
+	color:#89B;
+}
+
+.article-desc {
+	margin-top:1em;
+}
+
+.article-full {
+	margin-top:1em;
+}

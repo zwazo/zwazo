@@ -1,0 +1,28 @@
+<p>
+	<a href="{{ url('url_base') }}aa" class="btn">[ {{ 'admin'|trans }} ]</a>&nbsp;
+	<a href="{{ url('url_base') }}{{ controller }}/edit" class="btn add">{{ 'new'|trans }}</a>
+</p>
+
+{% if Results %}
+<table cellpadding="0" cellspacing="0" width="100%">
+<thead>
+<tr>
+	<th>{{ controller|trans }}</th>
+	<th width="50px">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+{% for item in Results %}
+{% set css = (loop.index % 2) ? 'even' : 'odd' %}
+<tr class="{{ css }}">
+	<td>
+	{{ item.label|raw }}
+	</td><td>
+	<a href="{{ url('url_base') }}{{ controller }}/edit/{{ item.id }}" class="btn-edit btn-list">Edit</a>
+	<a href="{{ url('url_base') }}{{ controller }}/del/{{ item.id }}" class="btn-delete btn-list">Delete</a>
+	</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
