@@ -1,9 +1,9 @@
 {% if Article %}
 <article>
 <header>{{ Article.title }}</header>
-<div class="article-desc">
+<p class="article-desc">
 {{ Article.description }}
-</div>
+</p>
 <div class="article-full">
 {{ Article.article|raw }}
 </div>

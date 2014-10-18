@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>Fallout New Vegas - Crafting Guide</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" media="screen" title="Default Style" />
+	<link rel="alternate stylesheet" type="text/css" href="./css/bright.css" media="screen" title="Brighter Style" />
+	
+	<style type="text/css">
+	#logs {
+		margin:0 auto;
+		padding:0.3em;
+		display:block;
+		border:1px solid #444;
+		background-color:#000;
+		width:990px; height:4em;
+		overflow-y:scroll;
+		font-size:13px;
+	}
+	
+	#logs .err, #logs .ferr {
+		color:#d55;
+	}
+	#logs .warn {
+		color:orange;
+	}
+	#logs .notice {
+		color:#ddd;
+	}
+	#logs .confirm {
+		color:#5d5;
+	}
+	</style>
+
+	<script type="text/javascript" src="./js/shared/phpjs.js"></script>
+	<script type="text/javascript" src="./js/shared/json2.js"></script>
+	<script type="text/javascript" src="./js/shared/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/shared/jstorage0.4.12.js"></script>
+	<script type="text/javascript" src="./js/FNVCraft.js"></script>
+	<script type="text/javascript" src="./js/FNVCraft.db.js"></script>
+</head>
+<body>
+
+<div class="site-main">
+
+<!--
+<select id="dlc">
+	<option value="all">-- All DLC</option>
+	<option value="none">-- No DLC</option>
+	<option value="DM">Dead Money</option>
+	<option value="HH">Honest Heart</option>
+	<option value="OWB">Old World Blues</option>
+</select>
+-->
+
+<select id="ingredients" onChange="FNVCraft.sel(this)">
+<option value="">-- ingredients --</option>
+</select>
+
+<div id="recipes" style="border:1px solid #aaa; margin:1em 0;">
+<div class="recipe-tabs"></div>
+<div class="recipes-content"></div>
+</div>
+
+Activity logs:
+<pre id="logs"></pre>
+</div>
+
+</body>
+</html>

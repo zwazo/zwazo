@@ -14,5 +14,10 @@ class Aa extends ControllerAbstract {
 		
 	}
 	
-	
+	/**
+	 *
+	 */
+	public function mcreateAction() {
+		die('mcreate!');
+	}
 }

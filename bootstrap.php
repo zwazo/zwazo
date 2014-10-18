@@ -74,7 +74,7 @@ $app->register(new FormServiceProvider());
 $app->get('/logout', function() use ($app) {
 	$app['session']->invalidate();
 	$app['session']->set('isAuthenticated', false);
-	return $app->redirect( $app['request']->getBaseUrl() . '/news' );
+	return $app->redirect( $app['request']->getBaseUrl() . '/' );
 });
 
 $app->get('/article/{ref}', function($ref) use ($app) {

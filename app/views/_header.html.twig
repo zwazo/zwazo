@@ -7,4 +7,12 @@
 <div class="site-main">
 <div id="nav">
 <a href="{{ url('url_base') }}" class="grey">[ {{ "backlog"|trans }} ]</a>
+
+
+{% if 'anonymous' != user.role %}
+<a href="{{ url('url_base') }}logout" style="float:right; margin-left:10px;">[^]</a>
+{% endif %}
+{% if 'admin' == user.role %}
+<a href="{{ url('url_base') }}aa" style="float:right;">[ {{ 'admin'|trans }} ]</a>
+{% endif %}
 </div>

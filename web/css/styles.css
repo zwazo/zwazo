@@ -1,13 +1,21 @@
 @import "./fonts.css";
 @import "./all.css";
 @import "./forms.css";
-
+@import '../fonts/icomoon-min.css';
 
 .article-home, .article-home:link {
 	display:block; text-decoration:none;
 }
 .article-home:active header, .article-home:hover header {
 	color:#89B;
+}
+
+.article-subtitle {
+	display:block; margin-top:1.5em;
+	font-weight:bold; 
+	font-size:1.2em;
+	font-family: 'Lora';
+	color: #89b;
 }
 
 .article-desc {
@@ -17,3 +25,31 @@
 .article-full {
 	margin-top:1em;
 }
+
+span.focus {
+	/* font-style:italic; */
+	color:#dea;
+}
+
+div.notice {
+	position:relative;
+	border: 1px solid #ab7;
+	border-radius: 0.4em;
+	background-color:#222;
+	padding:1em 1.5em;
+}
+
+div.notice div.ico:before {
+	font-family:'icomoon-min';
+	font-size:2em; font-weight:bold;
+	content:'\e630';
+	color:#dea;
+}
+div.notice div.ico {
+	position: absolute;
+	top:10px; left:10px;
+}
+div.notice div.txt {
+	margin-left:30px;
+}
+
